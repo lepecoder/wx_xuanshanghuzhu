@@ -1,5 +1,9 @@
 ### 微信小程序--悬赏互助平台
 
+[微信小程序简易教程](https://developers.weixin.qq.com/miniprogram/dev/)
+[微信API文档](https://developers.weixin.qq.com/miniprogram/dev/api/)
+[小程序开发指南](https://developers.weixin.qq.com/ebook?action=get_post_info&token=935589521&volumn=1&lang=zh_CN&book=miniprogram&docid=0008aeea9a8978ab0086a685851c0a)
+
 ## TODO
 - [ ] 登录（前端）
 - [ ] 登录（后端）
