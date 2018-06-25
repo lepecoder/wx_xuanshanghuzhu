@@ -21,6 +21,8 @@
 
 
 ## 页面说明
+
+```plain
 "pages": [
 	"pages/index/index",
 	"pages/add/add",
@@ -35,6 +37,6 @@
 	"pages/profile_MyOrder/profile_MyOrder",						  //'我的' --> '我的订单'
 	"pages/profile_MyCollect/profile_MyCollect"						  //'我的' --> '我的收藏'
 ],
-
+```
 
 
