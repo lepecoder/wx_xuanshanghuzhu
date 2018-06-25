@@ -1,0 +1,47 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/add/add",
+        "pages/profile/profile",
+        "pages/person_info/person_info",
+        "pages/item_detail/item_detail",
+        "pages/profile_MyPublish/profile_MyPublish",
+        "pages/profile_info_username/profile_info_username",
+        "pages/profile_info_phonenumber/profile_info_phonenumber",
+        "pages/profile_info_signature/profile_info_signature",
+        "pages/profile_MyMessage/profile_MyMessage",
+        "pages/profile_MyOrder/profile_MyOrder",
+        "pages/profile_MyCollect/profile_MyCollect"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "济南大学悬赏互助平台",
+        "navigationBarTextStyle": "black",
+        "enablePullDownRefresh": true
+    },
+    "tabBar": {
+        "color": "#bfbfbf",
+        "selectedColor": "#44ee00",
+        "list": [
+            {
+                "selectedIconPath": "image/index_4e0.png",
+                "iconPath": "image/index_bf.png",
+                "pagePath": "pages/index/index",
+                "text": "首页"
+            },
+            {
+                "selectedIconPath": "image/add_4e0.png",
+                "iconPath": "image/add_bf.png",
+                "pagePath": "pages/add/add",
+                "text": "发布"
+            },
+            {
+                "selectedIconPath": "image/my_4e0.png",
+                "iconPath": "image/my_bf.png",
+                "pagePath": "pages/profile/profile",
+                "text": "我的"
+            }
+        ]
+    }
+}

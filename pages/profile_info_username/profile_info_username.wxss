@@ -1,0 +1,6 @@
+/* pages/profile_info_username/profile_info_username.wxss */
+.inputText{
+    border-bottom:1rpx solid gray;
+    margin: 50rpx;
+    padding-left: 20rpx;
+}

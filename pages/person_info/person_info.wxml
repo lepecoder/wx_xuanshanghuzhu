@@ -1,0 +1,42 @@
+<!--pages/person_info/person_info.wxml-->
+
+<view class='container'>
+    <!--个人信息  -->
+    <view   class='item_view_top' bindtap='selectImage'>
+        <text class='item_text'>头像</text>
+        <image wx:if='{{imgUrl!=null}}' class='item_png' src='{{imgUrl}}'></image>
+        <image wx:else class='item_png' src='{{imgUrl}}'></image>
+    </view>
+
+    <view class='item_view' bindtap='setUsername'>
+        <text class='item_text'>名字</text>
+         <text class='person_value'>{{username}}</text> 
+
+    </view>
+
+    <view class='item_view' bindtap='setPhonenumber'>
+        <text class='item_text'>手机号</text>
+        <text class='person_value'>{{phonenumber}}</text>
+    </view>
+
+    </view>
+    <view class='container'>
+    <view class='item_view_top' >
+    <picker mode='selector' bindchange='bindSexChange'  range='{{sexs}}' value='0' >
+        <text class='item_text'>性别</text>
+        <text class='person_value'>{{sex}}</text>
+        </picker>
+    </view>
+     <view class="item_view">
+  <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+    
+      <text class='item_text'>地区</text>
+       <text class='person_value'>{{region[0]}}{{region[1]}}{{region[2]}}</text>
+
+  </picker>
+</view>
+    <view class='item_view' bindtap='setSignature' >
+        <text  class='item_text'>个性签名</text>
+        <text class='person_value'>{{signature}}</text>
+    </view>
+</view>

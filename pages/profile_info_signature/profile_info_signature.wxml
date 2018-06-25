@@ -1,0 +1,2 @@
+<!--pages/profile_info_signature/profile_info_signature.wxml-->
+<input class='inputText'type='text'placeholder='{{signature}}' bindchange='setSignature'  confirm-type='done'></input>

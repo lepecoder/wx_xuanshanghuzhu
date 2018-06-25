@@ -1,0 +1,37 @@
+<view class='container'>
+<block>
+    <view class='message'>
+        <view class='message_head'>
+            <text class='message_head_text'>消息1</text>
+        </view>
+        <view class='message_text'>
+            <text class='message_text_text'>消息1内容</text>
+        </view>
+        <view class='message_bottom'>
+            <text class='publish_time'>2018-6-12 16:43</text>
+        </view>
+    </view>
+    <view class='message'>
+        <view class='message_head'>
+            <text class='message_head_text'>消息2</text>
+        </view>
+        <view class='message_text'>
+            <text class='message_text_text'>消息2内容</text>
+        </view>
+        <view class='message_bottom'>
+            <text class='publish_time'>2018-6-12 16:43</text>
+        </view>
+    </view>
+    <view class='message'>
+        <view class='message_head'>
+            <text class='message_head_text'>消息3</text>
+        </view>
+        <view class='message_text'>
+            <text class='message_text_text'>消息3内容</text>
+        </view>
+        <view class='message_bottom'>
+            <text class='publish_time'>2018-6-12 16:43</text>
+        </view>
+    </view>
+</block>
+</view>

@@ -1,0 +1,57 @@
+/* pages/profile/profile.wxss */
+
+.person {
+    /* border: 1px solid darkblue; */
+    border-bottom: 1px dashed #CCC;
+    height: 120rpx;
+    padding: 20rpx;
+    background-image: url(http://chuantu.biz/t6/327/1528791807x-1376440168.png);
+    background-repeat: no-repeat;
+    background-size: 50rpx;
+    background-position: 650rpx;
+    margin-bottom: 20rpx;
+    padding-bottom: 30rpx;
+}
+
+.user_face {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 60rpx;
+}
+
+.user_name {
+    /* display: inline-block; *//* border: 1px slateblue solid; */
+    height: 120rpx;
+    margin-left: 40rpx;
+    line-height: 120rpx;
+    vertical-align: text-bottom;
+}
+
+.item_view {
+    /* border: 1px solid cadetblue; */
+    height: 100rpx;
+     line-height: 100rpx; 
+}
+
+.item_text {
+    padding-left: 30rpx;
+    margin-left: 15rpx;
+    width: 620rpx;
+    /* border: 1px solid red; */
+    border-bottom: 1px solid #CCC;
+    display: inline-block;
+    background-image: url(http://chuantu.biz/t6/327/1528791807x-1376440168.png);
+    background-repeat: no-repeat;
+    background-size: 50rpx;
+    background-position: 560rpx;
+}
+
+.item_png {
+    width: 60rpx;
+    height: 60rpx;
+    margin-left: 15rpx;
+    vertical-align: middle;
+}
+#item_text_last{
+    border-bottom: none;
+}

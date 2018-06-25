@@ -1,0 +1,60 @@
+<!--index.wxml-->
+<view class="container">
+    <!--分类  -->
+    <view>
+    <scroll-view scroll-x="true" class='category'>
+        <block wx:for='{{["全部","简单问答","快递外卖","替课","技术服务","二手交易"]}}'>
+            <view class='category_item' data-index='{{index}}'>
+                {{item}}
+            </view>
+        </block>
+    </scroll-view>
+</view>
+
+    <block>
+        <view class='item' bindtap='to_detail'>
+            <image class='user_face' src='/image/face.jpg'></image>
+            <view class='item_content'>
+                <text class='item_content_cate'>快递外卖</text>
+                <text class='user_name'>大学小生</text>
+                <text class='contact'>联系Ta</text>
+                <view class='item_content_text'>
+                    颜色或色彩是通过眼、脑和我们的生活经验所产生的一种对光的视觉效应。人对颜色的感觉不仅仅由光的物理性质所决定，還包含心理等許多因素，比如人类对颜色的感觉往往受到周围颜色的影响。有时人们也将物质产生不同颜色的物理特性直接称为颜色。
+                </view>
+                <view class='item_content_bottom'>
+                    <text class='publish_time'>2018-5-7 16:43</text>
+                    <view class='browse_message'>
+                        <image class='collect_png' src='/image/collect.png'></image>
+                         <text class='collect_text'></text>
+                        <image class='browse_png' src='/image/browse.png'></image>
+                        <text class='browse_text'>12</text>
+                        <image class='message_png' src='/image/comment.png'></image>
+                        <text class='message_text'>5</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+       <view class='item' bindtap='to_detail'>
+            <image class='user_face' src='/image/face.jpg'></image>
+            <view class='item_content'>
+                <text class='item_content_cate'>简单问答</text>
+                <text class='user_name'>大学小生</text>
+                <text class='contact'>联系Ta</text>
+                <view class='item_content_text'>
+                    颜色或色彩是通过眼、脑和我们的生活经验所产生的一种对光的视觉效应。人对颜色的感觉不仅仅由光的物理性质所决定，還包含心理等許多因素，比如人类对颜色的感觉往往受到周围颜色的影响。有时人们也将物质产生不同颜色的物理特性直接称为颜色。
+                </view>
+                <view class='item_content_bottom'>
+                    <text class='publish_time'>2018-5-7 16:43</text>
+                    <view class='browse_message'>
+                         <image class='collect_png' src='/image/collect.png'></image>
+                         <text class='collect_text'></text>
+                        <image class='browse_png' src='/image/browse.png'></image>
+                        <text class='browse_text'>12</text>
+                        <image class='message_png' src='/image/comment.png'></image>
+                        <text class='message_text'>5</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>

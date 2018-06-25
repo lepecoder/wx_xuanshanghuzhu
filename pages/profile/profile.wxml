@@ -1,0 +1,36 @@
+<!--pages/profile/profile.wxml-->
+<view class='container'>
+    <!--顶部个人栏  -->
+    <view class='person'  bindtap='to_info' >
+        <image class='user_face' src='{{imgUrl}}'></image>
+        <text class='user_name'>{{username}}</text>
+    </view>
+
+    <!--我的发布  -->
+
+    <view class='item_view' bindtap='to_publish'>
+        <image class='item_png' src='/image/publish.png'></image>
+        <text class='item_text' >我的发布</text>
+    </view>
+
+    <view class='item_view' bindtap='to_message'>
+        <image class='item_png' src='/image/message.png' ></image>
+        <text class='item_text'>我的消息</text>
+    </view>
+    <view class='item_view' bindtap='to_order' >
+        <image  class='item_png' src='/image/order.png'></image>
+        <text class='item_text'>我的接单</text>
+    </view>
+
+    <view class='item_view' bindtap='to_collect'>
+        <image class='item_png' src='/image/Mycollect.png'></image>
+        <text class='item_text'>我的收藏</text>
+    </view>
+
+    <view class='item_view' bindtap='phone_call' >
+        <image  class='item_png' src='/image/service.png'></image>
+        <text id='item_text_last' class='item_text'>联系客服</text>
+    </view>
+    
+
+</view>

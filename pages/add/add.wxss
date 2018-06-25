@@ -1,0 +1,62 @@
+/* pages/add/add.wxss */
+
+.container {
+    /* border: 1px solid red; */
+}
+
+.form_content {
+    padding: 30rpx;
+    margin: 0 auto;
+    font-size: 36rpx;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 80rpx;
+}
+
+.textarea {
+}
+
+.sub_btn {
+    position: absolute;
+    right: 25rpx;
+    width: 120rpx;
+    line-height: 60rpx;
+    height: 60rpx;
+    padding: 0;
+    color: white;
+    background-color: #43cd80;
+    border-radius: 50rpx;
+    font-size: 30rpx;
+}
+
+.pic, .mcf{
+    width: 50rpx;
+    height: 50rpx;
+    margin-top: 20rpx;
+    margin-left: 25rpx;
+}
+.mcf{
+    margin-left: 40rpx;
+}
+
+.sel_cate{
+    display: block;
+    font-size: 32rpx;
+    color: #ccc;
+    margin-left: 25rpx;
+    margin-top: 30rpx;
+}
+
+.radio_text{
+    font-size: 33rpx;
+    color: #666;
+    margin-left: 30rpx;
+    margin-top: 15rpx;
+    padding: 4rpx 20rpx 4rpx 20rpx;
+    display: inline-block;
+    border: 1px solid #CCC;
+    border-radius: 32rpx;
+}
+
+
+

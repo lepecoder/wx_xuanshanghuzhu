@@ -1,0 +1,2 @@
+<!--pages/profile_info_username/profile_info_username.wxml-->
+<input class='inputText'type='text'placeholder='{{username}}' bindchange='setUsername'  confirm-type='done'></input>

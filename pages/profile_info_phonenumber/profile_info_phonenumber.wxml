@@ -1,0 +1,2 @@
+<!--pages/profile_info_phonenumber/profile_info_phonenumber.wxml-->
+<input class='inputText'type='text'placeholder='{{phonenumber}}' bindchange='setPhonenumber'  confirm-type='done'></input>

@@ -1,0 +1,52 @@
+/* pages/person_info/person_info.wxss */
+page{background-color: #EAEAEA;}
+.container{background-color: #fff;}
+
+
+
+
+.item_view {
+    /* border: 1px solid cadetblue; */
+    height: 120rpx;
+     line-height: 120rpx; 
+    background-image: url(http://chuantu.biz/t6/327/1528791807x-1376440168.png);
+    background-repeat: no-repeat;
+    background-size: 50rpx;
+    background-position: 680rpx;
+     border-bottom: 1px solid #CCC;
+}
+.item_view_top{
+    margin-top: 10rpx;
+     height: 120rpx;
+    line-height: 120rpx;
+    background-image: url(http://chuantu.biz/t6/327/1528791807x-1376440168.png);
+    background-repeat: no-repeat;
+    background-size: 50rpx;
+    background-position: 680rpx;
+     border-bottom: 1px solid #CCC;
+     
+}
+
+.item_text {
+    padding-left: 10rpx;
+    margin-left: 15rpx;
+    width: 200rpx;
+    /* border: 1px solid red; */
+    /* border-bottom: 1px solid #CCC; */
+    display: inline-block;
+    
+}
+.person_value{
+    position: fixed;
+    right: 100rpx;
+
+}
+.item_png {
+    margin-top: 40rpx;
+    width: 60rpx;
+    height: 60rpx;
+    position: fixed;
+    right: 100rpx;
+   
+}
+
