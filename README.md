@@ -1,8 +1,18 @@
 ### 微信小程序--悬赏互助平台
 
+### 参考资料
 [微信小程序简易教程](https://developers.weixin.qq.com/miniprogram/dev/)
 [微信API文档](https://developers.weixin.qq.com/miniprogram/dev/api/)
 [小程序开发指南](https://developers.weixin.qq.com/ebook?action=get_post_info&token=935589521&volumn=1&lang=zh_CN&book=miniprogram&docid=0008aeea9a8978ab0086a685851c0a)
+
+
+### 写给小白
+1. `git pull`同步github的最新更改
+2. `git add 文件名`添加你更改的文件
+3. `git commit -m "说明"`提交你的更改
+4. `git push`上传你的更改到github
+5. `git status`提示你现在可以做的操作
+
 
 ## TODO
 - [ ] 登录（前端）
