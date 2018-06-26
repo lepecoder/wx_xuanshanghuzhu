@@ -1,10 +1,11 @@
+
 <!--pages/add/add.wxml-->
 <view class='container'>
-    <form>
+    <form bindsubmit="formSubmit" >
         <!--文字内容  -->
         <view class='form_content'>
-            <textarea class='textarea' auto-focus='true' placeholder="输入内容..." name='content'></textarea>
-            <button class='sub_btn'>发表</button>
+            <textarea  class='textarea' value="{{mess}}" auto-focus='true' placeholder="输入内容..." name='content' id="con" ></textarea>
+            <button formType="submit" class='sub_btn'>发表</button>
         </view>
         <!--添加图片  -->
         <image class='pic' src='/image/pic.png'></image>
@@ -18,9 +19,9 @@
             </view>
         </block>  -->
 
-        <radio-group class="radio-group" bindchange="radioChange">
+        <radio-group name='radio' class="radio-group" >
             <label wx:key='name' class="radio_lebal" wx:for="{{cate}}" wx:for-item="cate">
-                <radio  hidden='true' value="{{cate.name}}" checked="{{cate.checked}}" />
+                <radio  value="{{cate.value}}"hidden='true'  checked="{{cate.checked}}" />
                 <text bindtap='radio_tap' 
                 style=" color:{{cate.color}};border-color:{{cate.color}}" id='{{index}}' class='radio_text'>{{cate.value}}</text>
             </label>
