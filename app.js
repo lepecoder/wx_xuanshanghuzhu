@@ -32,7 +32,7 @@ App({
               
               wx.request({
 
-                url: 'http://api.com/restful/getOpenid.php',
+                url: 'http://api.admination.cn/restful/getOpenid.php',
 
                 data: {
                   code: res.code,
