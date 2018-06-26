@@ -6,7 +6,8 @@ App({
         signature:'whats up',
         sex:'男',
         region: ['上海市', '上海市', '黄浦区'],
-        avatar:'/image/avatar.png'
+        avatar:'/image/avatar.png',
+        openid:null
 
     } ,
 
@@ -14,47 +15,53 @@ App({
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
   onLaunch: function () {
-    wx.login({
 
+    wx.getStorage({
+      key: 'openid',
       success: function (res) {
+        
+        this.data.openid=res.data
+      },
+      fail:function(){
+        wx.login({
 
-        if (res.code) {
+          success: function (res) {
 
-          wx.request({
+            if (res.code) {
 
-            url: 'http://127.0.0.1/wxInt/tes.php',
+              wx.request({
 
-            data: {
+                url: 'http://127.0.0.1/wxInt/tes.php',
 
-              code: res.code
+                data: {
 
-            },
-
-            success: function (res) {
-
-              // 登录成功
-
-              if (res.statusCode === 200) {
-
-                console.log(res.data)// 服务器回包内容
+                  code: res.code,
 
 
-              }
+                },
 
+                success: function (res) {
+
+                  // 登录成功
+
+                  if (res.statusCode === 200) {
+
+                    //console.log(res.data)// 服务器回包内容
+                    wx.setStorage({
+                      key: "openid",
+                      data: res.data
+                    })
+                  }
+                }
+              })
+            } else {
+              console.log('获取用户登录态失败！' + res.errMsg)
             }
-
-          })
-
-        } else {
-
-          console.log('获取用户登录态失败！' + res.errMsg)
-
-        }
-
+          }
+        });
       }
-
-    });
-
+    })
+    
 
 
     
