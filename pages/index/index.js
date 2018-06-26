@@ -11,6 +11,7 @@ Page({
      
     
   },
+
   to_detail: function (e) {
       console.log(e);
       wx: wx.navigateTo({
@@ -25,6 +26,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that=this
+    wx.request({
+      url: '',    //-wait
+      header: {
+        'Content-Type':
+        'application/json'
+      },
+      success: function (res) {
+        that.setData({
+          re: res.data,
+        })  
+      },
+      fail: function (res) {
+        console.log(".....fail.....");
+      }
+    })
     
   },
 
