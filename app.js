@@ -19,34 +19,31 @@ App({
     wx.getStorage({
       key: 'openid',
       success: function (res) {
-        
-        this.data.openid=res.data
+        getApp().globalData.openid=res.data
+        //this.setData({openid:res.data})
       },
       fail:function(){
         wx.login({
 
           success: function (res) {
+            console.log(res.code);              
 
             if (res.code) {
-
+              
               wx.request({
 
-                url: 'http://127.0.0.1/wxInt/tes.php',
+                url: 'http://api.com/restful/getOpenid.php',
 
                 data: {
-
                   code: res.code,
-
-
                 },
 
                 success: function (res) {
 
                   // 登录成功
-
                   if (res.statusCode === 200) {
 
-                    //console.log(res.data)// 服务器回包内容
+                    console.log(res.data)// 服务器回包内容
                     wx.setStorage({
                       key: "openid",
                       data: res.data
