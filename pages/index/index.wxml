@@ -14,17 +14,17 @@
 
    <block>
         <view wx:for="{{re}}" wx:key="re">  
-        <view class='item' bindtap='to_detail'>
+        <view class='item'>
             <image class='user_face' src='/image/face.jpg'></image>
             <view class='item_content'>
                 <text class='item_content_cate'>{{item.class}}</text>
                 <text class='user_name'>{{item.service_id}}</text>
                 <text class='contact'>联系Ta</text>
-                <view class='item_content_text'>
+                <view class='item_content_text' bindtap='to_detail'>
                     {{item.article}}
                 </view>
                 <view class='item_content_bottom'>
-                    <text class='publish_time'>{{re.publish_time}}</text>
+                    <text class='publish_time'>{{item.publish_time}}</text>
                     <view class='browse_message'>
                         <image class='collect_png' src='/image/collect.png'></image>
                          <text class='collect_text'></text>

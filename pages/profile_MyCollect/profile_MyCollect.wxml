@@ -1,13 +1,13 @@
 <!--pages/profile_MyCollect/profile_MyCollect.wxml-->
 <view class="container">
     <block>
-        <view class='item' bindtap='to_detail'>
+        <view class='item'>
             <image class='user_face' src='/image/face.jpg'></image>
             <view class='item_content'>
                 <text class='item_content_cate'>快递外卖</text>
                 <text class='user_name'>大学小生</text>
                 <text class='contact'>联系Ta</text>
-                <view class='item_content_text'>
+                <view class='item_content_text' bindtap='to_detail'>
                     颜色或色彩是通过眼、脑和我们的生活经验所产生的一种对光的视觉效应。人对颜色的感觉不仅仅由光的物理性质所决定，還包含心理等許多因素，比如人类对颜色的感觉往往受到周围颜色的影响。有时人们也将物质产生不同颜色的物理特性直接称为颜色。
                 </view>
                 <view class='item_content_bottom'>
@@ -23,13 +23,13 @@
                 </view>
             </view>
         </view>
-       <view class='item' bindtap='to_detail'>
+       <view class='item'>
             <image class='user_face' src='/image/face.jpg'></image>
             <view class='item_content'>
                 <text class='item_content_cate'>简单问答</text>
                 <text class='user_name'>大学小生</text>
                 <text class='contact'>联系Ta</text>
-                <view class='item_content_text'>
+                <view class='item_content_text' bindtap='to_detail'>
                     颜色或色彩是通过眼、脑和我们的生活经验所产生的一种对光的视觉效应。人对颜色的感觉不仅仅由光的物理性质所决定，還包含心理等許多因素，比如人类对颜色的感觉往往受到周围颜色的影响。有时人们也将物质产生不同颜色的物理特性直接称为颜色。
                 </view>
                 <view class='item_content_bottom'>

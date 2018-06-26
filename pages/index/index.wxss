@@ -17,7 +17,7 @@
     border-bottom: 1px solid gray;
     margin: 0 auto;
     margin-top: 10px;
-    padding-bottom: 20px;
+    padding-bottom: 5px;
 }
 
 .item_content {
@@ -36,7 +36,7 @@
 }
 
 .item_content_cate {
-    background-color:gray;
+    background-color:red;
     color: white;
     font-size: 13px;
     font-family: 楷体;
@@ -54,7 +54,6 @@
 .contact {
     float: right;
     font-size: 12px;
-    /* font-family: 楷体; */
     padding: 3px 5px 3px 5px;
     border-radius: 4px;
     border: 1px solid #dbdbdb;
@@ -62,8 +61,12 @@
 }
 
 .item_content_text {
-    font-size: 13px;
+    
     margin-top: 6px;
+    display:-webkit-box; 
+    overflow:hidden; 
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
 }
 
 .item_content_bottom {
@@ -87,9 +90,11 @@
 
 .browse_png{
     margin-left: 20rpx;
+    margin-right: 15rpx; 
 }
 .message_png {
     margin-left: 20rpx;
+    margin-right: 15rpx;
 }
 
 .collect_text,.browse_text, .message_text {
