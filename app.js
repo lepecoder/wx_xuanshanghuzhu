@@ -3,7 +3,8 @@ App({
   globalData: {
     openid: "",
     signature:"",
-    phonenumber:""
+    phonenumber:"",
+    sex:"保密"
 
   },
 
