@@ -73,6 +73,7 @@ Page({
             fail: function () {
                 console.log('detail request fail')
             }
+    
         })
     },
     /**

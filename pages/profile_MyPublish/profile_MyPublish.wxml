@@ -1,43 +1,25 @@
-<!--pages/profile_MyPublish/profile_MyPublish.wxml-->
- <block>
-        <view class='item' >
-            <image class='user_face' src='/image/face.jpg'></image>
+
+        <view wx:for="{{mypublish}}">  
+        <view class='item'>
+            <image class='user_face' src='{{item.profile_pic}}'></image>
             <view class='item_content'>
-                <text class='item_content_cate'>快递外卖</text>
-                <text class='user_name'>大学小生</text>
-                <view class='item_content_text' bindtap='to_detail'>
-                    颜色或色彩是通过眼、脑和我们的生活经验所产生的一种对光的视觉效应。人对颜色的感觉不仅仅由光的物理性质所决定，還包含心理等許多因素，比如人类对颜色的感觉往往受到周围颜色的影响。有时人们也将物质产生不同颜色的物理特性直接称为颜色。
+                <text class='item_content_cate'>{{item.class}}</text>
+                <text class='user_name'>{{item.nick}}</text>
+                <text class='contact'>联系Ta</text>
+                <view class='item_content_text' id="{{item.post_id}}" bindtap='to_detail'>
+                    {{item.article}}
                 </view>
                 <view class='item_content_bottom'>
-                    <text class='publish_time'>2018-5-7 16:43</text>
+                    <text class='publish_time'>{{item.publish_time[5]}}{{item.publish_time[6]}}{{item.publish_time[7]}}{{item.publish_time[8]}}{{item.publish_time[9]}}{{item.publish_time[10]}}{{item.publish_time[11]}}{{item.publish_time[12]}}{{item.publish_time[13]}}{{item.publish_time[14]}}{{item.publish_time[15]}}</text>
                     <view class='browse_message'>
                         <image class='collect_png' src='/image/collect.png'></image>
+                         <text class='collect_text'></text>
                         <image class='browse_png' src='/image/browse.png'></image>
-                        <text class='browse_text'>12</text>
+                        <text class='browse_text'>{{item.view}}</text>
                         <image class='message_png' src='/image/comment.png'></image>
-                        <text class='message_text'>5</text>
+                        <text class='message_text'>{{item.favors}}</text>
                     </view>
                 </view>
             </view>
         </view>
-       <view class='item'>
-            <image class='user_face' src='/image/face.jpg'></image>
-            <view class='item_content'>
-                <text class='item_content_cate'>快递外卖</text>
-                <text class='user_name'>大学小生</text>
-                <view class='item_content_text' bindtap='to_detail'>
-                    颜色或色彩是通过眼、脑和我们的生活经验所产生的一种对光的视觉效应。人对颜色的感觉不仅仅由光的物理性质所决定，還包含心理等許多因素，比如人类对颜色的感觉往往受到周围颜色的影响。有时人们也将物质产生不同颜色的物理特性直接称为颜色。
-                </view>
-                <view class='item_content_bottom'>
-                    <text class='publish_time'>2018-5-7 16:43</text>
-                    <view class='browse_message'>
-                        <image class='collect_png' src='/image/collect.png'></image>
-                        <image class='browse_png' src='/image/browse.png'></image>
-                        <text class='browse_text'>12</text>
-                        <image class='message_png' src='/image/comment.png'></image>
-                        <text class='message_text'>5</text>
-                    </view>
-                </view>
-            </view>
         </view>
-    </block>
