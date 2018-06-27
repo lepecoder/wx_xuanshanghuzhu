@@ -5,8 +5,7 @@
         <text class='item_content_cate'>快递外卖</text>
         <text class='user_name'>大学小生</text>
         <text class='publish_time'>2018-5-7 16:43</text>
-    </view>
-          
+    </view>     
                 <view class='item_content_text'>
                     颜色或色彩是通过眼、脑和我们的生活经验所产生的一种对光的视觉效应。人对颜色的感觉不仅仅由光的物理性质所决定，還包含心理等許多因素，比如人类对颜色的感觉往往受到周围颜色的影响。有时人们也将物质产生不同颜色的物理特性直接称为颜色。
                 </view>
@@ -22,9 +21,34 @@
                     </view>
                 
             </view>
+        </view> 
+ 
+   <view bindtap="RequestData">回复</view>
+
+       <scroll-view scroll-y="true"style="height: 200px"  wx:for="{{list}}" wx:if="{{index>0}}"  >
+        {{item.name}}
+        <view  bindtap="remove" class="delete"> 删除 </view>
+       <view class="talk" bindtap="bindReply">回复</view>
+ 
+<view class="release" hidden="{{!releaseFocus}}">
+<textarea class="text"
+placeholder-class="input_null"
+fixed="true"
+maxlength="-1"
+show-confirm-bar="false"
+cursor-spacing="15"
+auto-height="true"
+focus="{{releaseFocus}}"
+placeholder="回复 {{releaseName}}"></textarea>
+<view class="submit">发送</view>
+</view>
+       </scroll-view>
+        <form bindsubmit="add_after" >
+          <view style="opacity:{{1}}"  class='item_bottom'>
+       <textarea  style="opacity:{{1}}"  auto-hight name="input" class='item_bottom_textarea' bindblur="bindTextAreaBlur"         placeholder="在这里输入您的评论"value="{{ceshi}}"/>
+       <button class='item_bottom_send' formType="submit">提交</button>
         </view>
-        <view class='item_bottom'>
-       <textarea class='item_bottom_textarea' bindblur="bindTextAreaBlur" placeholder="在这里输入您的评论"/>
-       <text class='item_bottom_send' >发送</text>
+        </form>
+      
+
         
-        </view>
