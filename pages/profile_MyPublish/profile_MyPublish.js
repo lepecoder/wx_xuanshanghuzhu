@@ -24,7 +24,6 @@ Page({
     var that = this
     wx.request({
       url: 'https://api.admination.cn/restful/index.php/publish/'+getApp().globalData.openid,    
-      //url: 'https://api.admination.cn/restful/index.php/publish/22',    
       data: {
 
       },
@@ -34,8 +33,12 @@ Page({
         'application/json'
       },
       success: function (res) {
+        var res_content = res.data;
+        res_content.forEach((item) => {
+          item.publish_time = item.publish_time.substring(5, 16)
+        });
         that.setData({
-          mypublish: res.data
+          mypublish: res_content
         })
       },
       fail: function (res) {
