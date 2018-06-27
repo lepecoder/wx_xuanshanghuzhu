@@ -21,7 +21,9 @@ Page({
         //     ceshi: e.detail.value
         // })
     },
-
+    RequestData: function(e){
+        console.log(this.data.post_info);
+    },
     /**
      * 页面的初始数据
      */
@@ -75,6 +77,7 @@ Page({
             }
     
         })
+       
     },
     /**
     * 点击回复

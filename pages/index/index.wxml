@@ -24,7 +24,7 @@
                     {{item.article}}
                 </view>
                 <view class='item_content_bottom'>
-                    <text class='publish_time'>{{item.publish_time[5]}}{{item.publish_time[6]}}{{item.publish_time[7]}}{{item.publish_time[8]}}{{item.publish_time[9]}}{{item.publish_time[10]}}{{item.publish_time[11]}}{{item.publish_time[12]}}{{item.publish_time[13]}}{{item.publish_time[14]}}{{item.publish_time[15]}}</text>
+                     <text class='publish_time'>{{item.publish_time}}</text> 
                     <view class='browse_message'>
                         <image class='collect_png' src='/image/collect.png'></image>
                          <text class='collect_text'></text>

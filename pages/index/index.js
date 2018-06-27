@@ -80,9 +80,12 @@ Page({
         'application/json'
       },
       success: function (res) {
-        
+        var res_content = res.data.content;
+        res_content.forEach((item) => {
+            item.publish_time = item.publish_time.substring(5,16)
+        });
         that.setData({
-          re:res.data.content
+          re:res_content
         })  
       },
       fail: function (res) {

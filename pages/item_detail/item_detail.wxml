@@ -1,26 +1,26 @@
 <!--pages/item_detail/item_detail.wxml-->
-<view>{{post_info.post_id}}</view>
-<view class='item' wx:for="{{detail}}" wx:key="item">
+ <!-- <view>{{post_info.post_id}}</view>  -->
+ <view class='item' > 
     <view class='item_top'>
-        <image class='user_face' src='/image/face.jpg'></image>
-        <text class='item_content_cate'>{{item.class}}</text>
-        <text class='user_name'>{{item.service_id}}</text>
-        <text class='publish_time'>{{item.publish_time}}</text>
+        <image class='user_face' src="{{post_info.profile_pic}}"></image>
+        <text class='item_content_cate'>{{post_info.class}}</text>
+        <text class='user_name'>{{post_info.nick}}</text>
+        <text class='publish_time'>{{post_info.publish_time}}</text>
     </view>
     <view class='item_content_text'>
-        {{item.article}}
+        {{post_info.article}}
     </view>
     <view class='item_content_bottom'>
         <view class='browse_message'>
             <image class='collect_png' src='/image/collect.png'></image>
             <image class='browse_png' src='/image/browse.png'></image>
-            <text class='browse_text'>{{item.view}}</text>
+            <text class='browse_text'>{{post_info.view}}</text>
             <image class='message_png' src='/image/comment.png'></image>
-            <text class='message_text'>{{item.favors}}</text>
+            <text class='message_text'>{{post_info.favors}}</text>
         </view>
 
     </view>
-</view>
+ </view> 
 
 <view bindtap="RequestData">回复</view>
 
