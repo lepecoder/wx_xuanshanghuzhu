@@ -1,6 +1,6 @@
 <!--pages/profile_MyCollect/profile_MyCollect.wxml-->
 
-        <view wx:for="{{mycollect}}" wx:key>  
+        <view wx:for="{{mycollect}}" wx:key="mc">  
         <view class='item'>
             <image class='user_face' src='{{item.profile_pic}}'></image>
             <view class='item_content'>
