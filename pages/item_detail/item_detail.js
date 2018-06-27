@@ -59,7 +59,7 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx.request({
-      url: 'https://api.admination.cn/restful/index.php/posts/7',
+      url: 'https://api.admination.cn/restful/index.php/posts/1',
       data: {},
 
       success: function (res) {

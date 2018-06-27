@@ -20,6 +20,9 @@
         "navigationBarTextStyle": "black",
         "enablePullDownRefresh": true
     },
+      "networkTimeout": {
+        "request": 3000
+      },
     "tabBar": {
         "color": "#bfbfbf",
         "selectedColor": "#44ee00",

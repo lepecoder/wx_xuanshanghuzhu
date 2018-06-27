@@ -8,10 +8,48 @@ Page({
    * 页面的初始数据
    */
   data: {
-    re:[]
-
-    
+    re:[]    
   },
+
+  onPullDownRefresh(){
+    
+    // 用户触发了下拉刷新操作
+    console.log('--------下拉刷新-------')
+    // 在标题栏中显示加载
+    wx.showNavigationBarLoading() 
+    // 拉取数据重新渲染界面
+    var that = this
+    wx.request({
+      url: 'https://api.admination.cn/restful/show_post_list.php',  
+      data: {
+      },
+      header: {
+        'content-type':
+        'application/json'
+      },
+      success: function (res) {
+        that.setData({
+          re: res.data.content
+        })
+      },
+      fail: function (res) {
+        console.log("home request fail");
+      },
+      complete:function(){
+        wx.hideNavigationBarLoading() //完成停止加载
+        wx.stopPullDownRefres()  // 停止当前页面的下拉刷新
+      }
+    })
+    //wx.hideNavigationBarLoading() //完成停止加载
+    // wx.stopPullDownRefres()  // 停止当前页面的下拉刷新
+  },
+  
+  onReachBottom: function () {
+
+    // 当界面的下方距离页面底部距离小于100像素时触发回调
+
+  },
+
 
   to_detail: function (e) {
     //   console.log(e["currentTarget"]["id"]);
