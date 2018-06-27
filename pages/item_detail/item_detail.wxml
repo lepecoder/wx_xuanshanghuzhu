@@ -7,10 +7,8 @@
         <text class='publish_time'>2018-5-7 16:43</text>
     </view>     
                 <view class='item_content_text'>
-                    颜色或色彩是通过眼、脑和我们的生活经验所产生的一种对光的视觉效应。人对颜色的感觉不仅仅由光的物理性质所决定，還包含心理等許多因素，比如人类对颜色的感觉往往受到周围颜色的影响。有时人们也将物质产生不同颜色的物理特性直接称为颜色。
                 </view>
                 <view class='item_content_bottom'>
-                   
                     <view class='browse_message'>
                          <image class='collect_png' src='/image/collect.png'></image>
                          <text class='collect_text'></text>

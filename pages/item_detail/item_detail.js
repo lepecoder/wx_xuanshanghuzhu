@@ -26,7 +26,7 @@ Page({
 
     success: function (res) {
       
-    console.log(res.data)
+console.log(res.data)
       },
     fail:function(){
       console.log('dsfasf')
@@ -81,14 +81,7 @@ Page({
       releaseFocus: true
     })
   },
-  getUserInfo: function (e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-  },
+ 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
