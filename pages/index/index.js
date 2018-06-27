@@ -34,7 +34,7 @@ Page({
     wx.request({
       url: 'https://api.admination.cn/restful/show_post_list.php',    //-wait
       data: {
-        sJson:'"post_if","title","publish_time"'
+       
       },
 
       header: {
@@ -48,7 +48,7 @@ Page({
         })  
       },
       fail: function (res) {
-        console.log(".....fail.....");
+        console.log("home request fail");
       }
     })
     

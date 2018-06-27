@@ -10,29 +10,14 @@ Page({
     releaseFocus: false,
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    detail:[]
   },
   bindTextAreaBlur: function (e) {
     this.setData({
       ceshi: e.detail.value
     })
   },
-  RequestData: function () {
-    console.log("dsfasf")
-    var that = this;
-    wx.request({
-      url: 'https://api.admination.cn/restful/index.php/posts/1',
-      data: {},
-
-    success: function (res) {
-      
-console.log(res.data)
-      },
-    fail:function(){
-      console.log('dsfasf')
-    }
-    })
-  },  
 
   /**
    * 页面的初始数据
@@ -72,7 +57,21 @@ console.log(res.data)
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
+    var that = this;
+    wx.request({
+      url: 'https://api.admination.cn/restful/index.php/posts/7',
+      data: {},
+
+      success: function (res) {
+        that.setData({
+          detail:res.data
+        })
+
+      },
+      fail: function () {
+        console.log('detail request fail')
+      }
+    })
   },
   /**
   * 点击回复
