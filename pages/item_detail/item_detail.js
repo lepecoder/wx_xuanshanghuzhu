@@ -3,26 +3,26 @@ const app = getApp()
 Page({
 
     data: {
-        // height: 20,
-        // focus: false,
-        // ceshi: '',
-        // list: [{}],
-        // releaseFocus: false,
+        height: 20,
+        focus: false,
+        ceshi: '',
+        list: [{}],
+        releaseFocus: false,
 
-        // userInfo: {},
-        // hasUserInfo: false,
-        // canIUse: wx.canIUse('button.open-type.getUserInfo'),
+        userInfo: {},
+        hasUserInfo: false,
+        canIUse: wx.canIUse('button.open-type.getUserInfo'),
         // detail: [],
-        post_info:{},   //文章信息    
-        comments:[]      //评论
+        post_info: {},   //文章信息    
+        comments: []      //评论
     },
     bindTextAreaBlur: function (e) {
         // this.setData({
         //     ceshi: e.detail.value
         // })
     },
-    RequestData: function(e){
-        console.log(this.data.post_info);
+    RequestData: function (e) {
+        console.log(this.data.post_info.comments);
     },
     /**
      * 页面的初始数据
@@ -64,20 +64,18 @@ Page({
     onLoad: function (options) {
         var that = this;//在success回调函数中this已经改变为当前对象，所以要拷贝一份到that里
         wx.request({
-            url: 'https://api.admination.cn/restful/index.php/posts/'+options["post_id"],
+            url: 'https://api.admination.cn/restful/index.php/posts/' + options["post_id"],
             success: function (res) {
                 that.setData({
-                    post_info:res.data[0],
-                    comments:res.data[0]["comments"]
+                    post_info: res.data[0],
+                    comments: res.data[0]["comments"]
                 })
 
             },
             fail: function () {
                 console.log('detail request fail')
             }
-    
         })
-       
     },
     /**
     * 点击回复
