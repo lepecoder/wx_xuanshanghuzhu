@@ -7,7 +7,6 @@
 .item_top{
     height: 100rpx;
     margin-left: 20rpx; 
-
 }
 .item_top_center{
     float: center;
@@ -39,23 +38,19 @@
     margin-left: 10rpx;
     background-color: red;
     color: white;
-    font-size: 11px;
     font-family: 楷体;
+    font-size: 13px;
     padding: 3px 5px 3px 5px;
     border-radius: 4px;
-    /* margin-left: 13rpx; */
 }
 
 .user_name {
-    font-size: 12px;
+    font-size: 15px;
     color: #376956;
     margin-left: 15rpx;
 }
 
-
-
 .item_content_text {
-    font-size: 14px;
     margin: 10px 30rpx 0rpx;
 }
 
@@ -68,7 +63,7 @@
     margin-top: 10rpx;
     margin-right: 20rpx;
     float: right;
-    font-size: 12px;
+    font-size: 13px;
     color: #aaa;
 }
 
@@ -84,6 +79,7 @@
 
 .browse_png,.message_png {
     margin-left: 20rpx;
+    margin-right:15rpx;
 }
 
 .collect_text,.browse_text, .message_text {

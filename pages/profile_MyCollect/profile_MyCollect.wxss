@@ -1,10 +1,25 @@
 /* pages/profile_MyCollect/profile_MyCollect.wxss */
 
+.category {
+    /* border-bottom: 1px gray solid; */
+    width: 100%;
+    height: 30px;
+    display: flex;
+    white-space: nowrap;
+    line-height: 30px;
+}
+
+.category_item {
+    display: inline-block;
+    color: #dbdbdb;
+    margin-left: 25rpx;
+}
+
 .item {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid gray;
     margin: 0 auto;
     margin-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
 
 .item_content {
@@ -23,7 +38,7 @@
 }
 
 .item_content_cate {
-    background-color: red;
+    background-color:red;
     color: white;
     font-size: 13px;
     font-family: 楷体;
@@ -41,7 +56,6 @@
 .contact {
     float: right;
     font-size: 12px;
-    /* font-family: 楷体; */
     padding: 3px 5px 3px 5px;
     border-radius: 4px;
     border: 1px solid #dbdbdb;
@@ -49,8 +63,12 @@
 }
 
 .item_content_text {
-    font-size: 13px;
+    
     margin-top: 6px;
+    display:-webkit-box; 
+    overflow:hidden; 
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
 }
 
 .item_content_bottom {
@@ -74,9 +92,11 @@
 
 .browse_png{
     margin-left: 20rpx;
+    margin-right: 15rpx; 
 }
 .message_png {
     margin-left: 20rpx;
+    margin-right: 15rpx;
 }
 
 .collect_text,.browse_text, .message_text {

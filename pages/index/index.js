@@ -8,9 +8,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-     
+    re:[]
+
     
   },
+
   to_detail: function (e) {
       console.log(e);
       wx: wx.navigateTo({
@@ -24,7 +26,29 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function (option) {
+    var that=this
+    wx.request({
+      url: 'https://api.admination.cn/restful/show_post_list.php',    //-wait
+      data: {
+        sJson:'"post_if","title","publish_time"'
+      },
+
+      header: {
+        'content-type':
+        'application/json'
+      },
+      success: function (res) {
+        
+        that.setData({
+          re:res.data.content
+        })  
+      },
+      fail: function (res) {
+        console.log(".....fail.....");
+      }
+    })
+    
     
   },
 
