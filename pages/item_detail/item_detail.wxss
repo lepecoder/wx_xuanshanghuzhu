@@ -1,5 +1,23 @@
 /* pages/item_detail/item_detail.wxss */
 
+/* 评论人昵称 */
+.comments .nick{
+    color: #376956;
+    margin: 20rpx;
+}
+
+/*评论回复字样  */
+.comment .res{
+    color: #C9C9C9;
+    display: inline;
+}
+
+.comment .res_content{
+    color: #707070;
+}
+
+/*评论内容  */
+
 .item {
     border-bottom: 1px solid #ccc;
     margin-top: 20rpx ;
@@ -95,7 +113,7 @@ bottom:0rpx;
 }
 .item_bottom_send{
     margin: 10rpx;
-    float: right;
+    /* float: right; */
     display: inline-block;
     color: #707070;
 }
@@ -144,3 +162,5 @@ line-height: 64rpx;
 text-align: center;
 color: #66CC00;
 }
+
+

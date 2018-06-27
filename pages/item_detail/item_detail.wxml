@@ -1,6 +1,6 @@
 <!--pages/item_detail/item_detail.wxml-->
- <!-- <view>{{post_info.post_id}}</view>  -->
- <view class='item' > 
+<!-- <view>{{post_info.post_id}}</view>  -->
+<view class='item'>
     <view class='item_top'>
         <image class='user_face' src="{{post_info.profile_pic}}"></image>
         <text class='item_content_cate'>{{post_info.class}}</text>
@@ -20,12 +20,27 @@
         </view>
 
     </view>
- </view> 
+</view>
 
 <view bindtap="RequestData">回复</view>
 
-<scroll-view scroll-y="true" style="height: 200px" wx:for="{{list}}" wx:if="{{index>0}}" wx:key="item">
-    {{item.name}}
+<!-- 循环评论 -->
+<view class='comments' wx:for="{{comments}}" wx:key="item">
+    <!--评论人昵称  -->
+    <text class="nick">{{item.unick}}</text>
+    <view class='res'  wx:if="{{item.parent_id!=-1}}">回复</view>
+    <!-- <view>{{item.parent_id}}</view> -->
+    <!--评论内容  -->
+    <text class='res_content'>: {{item.content}}</text>
+    <!--  -->
+
+</view>
+
+
+
+<!--
+<scroll-view scroll-y="true" style="height: 200px" wx:for="{{comments}}"  wx:key="item">
+    {{item.unick}}
     <view bindtap="remove" class="delete"> 删除 </view>
     <view class="talk" bindtap="bindReply">回复</view>
 
@@ -40,3 +55,4 @@
         <button class='item_bottom_send' formType="submit">提交</button>
     </view>
 </form>
+  -->
