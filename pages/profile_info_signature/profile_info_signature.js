@@ -12,16 +12,24 @@ Page({
 
   setSignature: function (e) {
       var sign = e.detail.value;
-      getApp().globalData.signature =sign;
+      getApp().globalData.signature = sign
+      
       wx.navigateBack({
           //-------
       })
+     
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      this.setData({ signature: getApp().globalData.signature })
+    var that = this
+    wx.getStorage({
+      key: 'phonenumber',
+      success: function (res) {
+        that.setData({ phonenumber: res.data });
+      }
+    })
   
   },
 

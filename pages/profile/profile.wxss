@@ -12,7 +12,12 @@
     margin-bottom: 20rpx;
     padding-bottom: 30rpx;
 }
-
+.useinfo_but{
+   width: 200rpx;
+    height: 120rpx;
+    margin-right: 15rpx;
+    vertical-align: middle;
+}
 .user_face {
     width: 120rpx;
     height: 120rpx;
@@ -22,9 +27,11 @@
 .user_name {
     /* display: inline-block; *//* border: 1px slateblue solid; */
     height: 120rpx;
+    width:200rpx;
     margin-left: 40rpx;
     line-height: 120rpx;
     vertical-align: text-bottom;
+  
 }
 
 .item_view {

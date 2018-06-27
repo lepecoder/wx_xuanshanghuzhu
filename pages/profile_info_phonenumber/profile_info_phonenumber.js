@@ -12,9 +12,9 @@ Page({
 
   setPhonenumber: function (e) {
       var pn = e.detail.value;
-      getApp().globalData.phonenumber = pn;
+      getApp().globalData.phonenumber = pn
       wx.navigateBack({
-          //-------
+        delta: 1
       })
   },
 
@@ -22,8 +22,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-     
-      this.setData({ phonenumber: getApp().globalData.phonenumber })
+     var that=this
+    wx.getStorage({
+      key: 'phonenumber',
+      success: function (res) {
+        that.setData({ phonenumber: res.data });
+      }
+
+    })
   
   },
 
