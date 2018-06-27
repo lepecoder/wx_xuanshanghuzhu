@@ -66,11 +66,14 @@ Page({
         wx.request({
             url: 'https://api.admination.cn/restful/index.php/posts/' + options["post_id"],
             success: function (res) {
+              var res_content = res.data[0]["publish_time"];
+              console.log(res.data[0]["publish_time"]);
+              res.data[0].publish_time = res_content.substring(5, 16)
+              console.log(res.data[0]);
                 that.setData({
-                    post_info: res.data[0],
-                    comments: res.data[0]["comments"]
+                  post_info: res.data[0],
+                  comments: res.data[0]["comments"]
                 })
-
             },
             fail: function () {
                 console.log('detail request fail')
