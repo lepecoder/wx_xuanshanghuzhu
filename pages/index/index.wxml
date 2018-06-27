@@ -2,40 +2,37 @@
 
 <view class="container">
     <!--分类  -->
-    <view>
+   <view>
     <scroll-view scroll-x="true" class='category'>
-        <block wx:for='{{["全部","简单问答","快递外卖","替课","技术服务","二手交易"]}}'>
-            <view class='category_item' data-index='{{index}}'>
+        <block wx:for='{{["全部","简单问答","快递外卖","替课","技术服务","二手交易"]}}' wx:key="item">
+            <view class='category_item' data-index='{{index}}' data-current='{{item}}' bindtap='tab'>
                 {{item}}
             </view>
         </block>
     </scroll-view>
-</view>
-
-   <block>
-        <view wx:for="{{re}}" wx:key="re">  
-        <view class='item'>
-            <image class='user_face' src='/image/face.jpg'></image>
+   </view>   
+          <block>
+          <view class='item' wx:for="{{re}}" wx:key="re">
+            <image class='user_face' src='{{item.profile_pic}}'></image>
             <view class='item_content'>
                 <text class='item_content_cate'>{{item.class}}</text>
-                <text class='user_name'>{{item.service_id}}</text>
+                <text class='user_name'>{{item.nick}}</text>
                 <text class='contact'>联系Ta</text>
-                <view class='item_content_text' bindtap='to_detail'>
+                <view class='item_content_text' id="{{item.post_id}}" bindtap='to_detail'>
                     {{item.article}}
                 </view>
-                <view class='item_content_bottom'>
-                    <text class='publish_time'>{{item.publish_time}}</text>
-                    <view class='browse_message'>
-                        <image class='collect_png' src='/image/collect.png'></image>
-                         <text class='collect_text'></text>
-                        <image class='browse_png' src='/image/browse.png'></image>
-                        <text class='browse_text'>{{item.view}}</text>
-                        <image class='message_png' src='/image/comment.png'></image>
-                        <text class='message_text'>{{item.favors}}</text>
-                    </view>
-                </view>
+            <view class='item_content_bottom'>
+                     <text class='publish_time'>{{item.publish_time}}</text> 
+                <view class='browse_message'>
+                    <image class='collect_png' src='/image/collect.png'></image>
+                    <text class='collect_text'></text>
+                    <image class='browse_png' src='/image/browse.png'></image>
+                    <text class='browse_text'>{{item.view}}</text>
+                    <image class='message_png' src='/image/comment.png'></image>
+                    <text class='message_text'>{{item.favors}}</text>
+                </view> 
             </view>
-        </view>
-        </view>
-    </block>
+            </view>
+          </view>
+          </block>
 </view>

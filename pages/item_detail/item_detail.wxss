@@ -1,5 +1,23 @@
 /* pages/item_detail/item_detail.wxss */
 
+/* 评论人昵称 */
+.comments .nick{
+    color: #376956;
+    margin: 20rpx;
+}
+
+/*评论回复字样  */
+.comment .res{
+    color: #C9C9C9;
+    display: inline;
+}
+
+.comment .res_content{
+    color: #707070;
+}
+
+/*评论内容  */
+
 .item {
     border-bottom: 1px solid #ccc;
     margin-top: 20rpx ;
@@ -21,11 +39,19 @@
 .user_face {
     width: 90rpx;
     height: 90rpx;
-    margin-left: 20rpx;
+    margin-left:1%;
     border-radius: 45rpx;
     float: left;
 }
-
+.comment_content{
+  margin-left:50rpx;
+}
+.delete
+{
+  margin-left: 80%;
+  font-size:11px;
+  color:aqua;
+}
 .item_content_cate {
     margin-left: 10rpx;
     background-color: red;
@@ -79,7 +105,6 @@
     color: #707070;
 }
 .item_bottom{   
-
 position:fixed;
 height:100rpx;
 width: 100%;
@@ -88,7 +113,7 @@ bottom:0rpx;
 }
 .item_bottom_send{
     margin: 10rpx;
-    float: right;
+    /* float: right; */
     display: inline-block;
     color: #707070;
 }
@@ -100,3 +125,42 @@ bottom:0rpx;
     width: 500rpx;
     height: 50rpx;
 }
+.input_null{
+color: #C9C9C9;
+}
+ 
+.release{
+display: flex;
+align-items: flex-end; /*底部对齐*/
+justify-content: space-between; /*两端对齐*/
+box-sizing: border-box;
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+padding: 18rpx 0 18rpx 30rpx;
+background-color: #F7F8F7;
+font-size: 28rpx;
+z-index: 999;
+}
+.release .text{
+width: 604rpx;
+min-height: 34rpx;
+max-height: 102rpx; /*最多显示三行*/
+border-width: 15rpx 20rpx; /*使用padding与预期留白不一致，故使用border*/
+border-style: solid;
+border-color: #ffffff;
+line-height: 34rpx;
+font-size: 28rpx;
+background-color: #ffffff;
+border-radius: 4rpx;
+}
+.release .submit{
+width: 116rpx;
+height: 64rpx;
+line-height: 64rpx;
+text-align: center;
+color: #66CC00;
+}
+
+

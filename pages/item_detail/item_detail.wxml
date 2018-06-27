@@ -1,30 +1,58 @@
 <!--pages/item_detail/item_detail.wxml-->
- <view class='item'>
+<!-- <view>{{post_info.post_id}}</view>  -->
+<view class='item'>
     <view class='item_top'>
-        <image class='user_face' src='/image/face.jpg'></image>
-        <text class='item_content_cate'>快递外卖</text>
-        <text class='user_name'>大学小生</text>
-        <text class='publish_time'>2018-5-7 16:43</text>
+        <image class='user_face' src="{{post_info.profile_pic}}"></image>
+        <text class='item_content_cate'>{{post_info.class}}</text>
+        <text class='user_name'>{{post_info.nick}}</text>
+        <text class='publish_time'>{{post_info.publish_time}}</text>
     </view>
-          
-                <view class='item_content_text'>
-                    颜色或色彩是通过眼、脑和我们的生活经验所产生的一种对光的视觉效应。人对颜色的感觉不仅仅由光的物理性质所决定，還包含心理等許多因素，比如人类对颜色的感觉往往受到周围颜色的影响。有时人们也将物质产生不同颜色的物理特性直接称为颜色。
-                </view>
-                <view class='item_content_bottom'>
-                   
-                    <view class='browse_message'>
-                         <image class='collect_png' src='/image/collect.png'></image>
-                         <text class='collect_text'></text>
-                        <image class='browse_png' src='/image/browse.png'></image>
-                        <text class='browse_text'>12</text>
-                        <image class='message_png' src='/image/comment.png'></image>
-                        <text class='message_text'>5</text>
-                    </view>
-                
-            </view>
+    <view class='item_content_text'>
+        {{post_info.article}}
+    </view>
+    <view class='item_content_bottom'>
+        <view class='browse_message'>
+            <image class='collect_png' src='/image/collect.png'></image>
+            <image class='browse_png' src='/image/browse.png'></image>
+            <text class='browse_text'>{{post_info.view}}</text>
+            <image class='message_png' src='/image/comment.png'></image>
+            <text class='message_text'>{{post_info.favors}}</text>
         </view>
-        <view class='item_bottom'>
-       <textarea class='item_bottom_textarea' bindblur="bindTextAreaBlur" placeholder="在这里输入您的评论"/>
-       <text class='item_bottom_send' >发送</text>
-        
-        </view>
+
+    </view>
+</view>
+
+<view bindtap="RequestData">回复</view>
+
+<!-- 循环评论 -->
+<view class='comments' wx:for="{{comments}}" wx:key="item">
+    <!--评论人昵称  -->
+    <text class="nick">{{item.unick}}</text>
+    <view class='res'  wx:if="{{item.parent_id!=-1}}">回复</view>
+    <!-- <view>{{item.parent_id}}</view> -->
+    <!--评论内容  -->
+    <text class='res_content'>: {{item.content}}</text>
+    <!--  -->
+
+</view>
+
+
+
+<!--
+<scroll-view scroll-y="true" style="height: 200px" wx:for="{{comments}}"  wx:key="item">
+    {{item.unick}}
+    <view bindtap="remove" class="delete"> 删除 </view>
+    <view class="talk" bindtap="bindReply">回复</view>
+
+    <view class="release" hidden="{{!releaseFocus}}">
+        <textarea class="text" placeholder-class="input_null" fixed="true" maxlength="-1" show-confirm-bar="false" cursor-spacing="15" auto-height="true" focus="{{releaseFocus}}" placeholder="回复 {{releaseName}}"></textarea>
+        <view class="submit">发送</view>
+    </view>
+</scroll-view>
+<form bindsubmit="add_after">
+    <view style="opacity:{{1}}" class='item_bottom'>
+        <textarea style="opacity:{{1}}" auto-hight name="input" class='item_bottom_textarea' bindblur="bindTextAreaBlur" placeholder="在这里输入您的评论" value="{{ceshi}}" />
+        <button class='item_bottom_send' formType="submit">提交</button>
+    </view>
+</form>
+  -->

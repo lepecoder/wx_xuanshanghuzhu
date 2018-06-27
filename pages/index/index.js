@@ -8,16 +8,99 @@ Page({
    * 页面的初始数据
    */
   data: {
-    re:[]
-
-    
+    re:[],
+    current:0
   },
 
+  //tab切换
+  tab: function (event) {
+    console.log(event.target.dataset.current);
+    this.setData({ current: event.target.dataset.current })
+    if (event.target.dataset.current=="全部")
+      var url = 'https://api.admination.cn/restful/show_post_list.php'
+    else 
+      var url = 'https://api.admination.cn/restful/show_post_list.php?class=' + event.target.dataset.current
+    
+    console.log(url)
+
+    var that = this
+    wx.request({
+
+      url: url,    //-wait
+      data: {
+
+      },
+
+      header: {
+        'content-type':
+        'application/json'
+      },
+      success: function (res) {
+        var res_content = res.data.content;
+        res_content.forEach((item) => {
+          item.publish_time = item.publish_time.substring(5, 16)
+        });
+        that.setData({
+          re: res_content
+        })
+      },
+      fail: function (res) {
+        console.log("home request fail");
+      }
+    })
+  },
+
+
+  onPullDownRefresh:function(){
+    
+    // 用户触发了下拉刷新操作
+    console.log('--------下拉刷新-------')
+    // 在标题栏中显示加载
+    wx.showNavigationBarLoading() 
+
+    // 拉取数据重新渲染界面
+    var that = this
+    wx.request({
+      
+      url: 'https://api.admination.cn/restful/show_post_list.php',  
+      data: {
+      },
+      header: {
+        'content-type':
+        'application/json'
+      },
+      success: function (res) {
+        that.setData({
+          re: res.data.content
+        })
+      },
+      fail: function (res) {
+        console.log("home request fail");
+      },
+      complete:function(){
+        console.log('--------下拉刷新-------')
+        wx.hideNavigationBarLoading() //完成停止加载
+        wx.stopPullDownRefresh()  // 停止当前页面的下拉刷新
+      }
+    })
+
+  },
+  
+  onReachBottom: function () {
+
+    // 当界面的下方距离页面底部距离小于100像素时触发回调
+
+  },
+
+
   to_detail: function (e) {
-      console.log(e);
+    //   console.log(e["currentTarget"]["id"]);
+
       wx: wx.navigateTo({
-          url: '/pages/item_detail/item_detail',
-          success: function (res) { },
+          url: '/pages/item_detail/item_detail?post_id='+e["currentTarget"]["id"],
+          success: function (res) {
+            //   console.log(res)
+           },
           fail: function (res) { },
           complete: function (res) { },
       })
@@ -29,9 +112,10 @@ Page({
   onLoad: function (option) {
     var that=this
     wx.request({
+
       url: 'https://api.admination.cn/restful/show_post_list.php',    //-wait
       data: {
-        sJson:'"post_if","title","publish_time"'
+       
       },
 
       header: {
@@ -39,13 +123,16 @@ Page({
         'application/json'
       },
       success: function (res) {
-        
+        var res_content = res.data.content;
+        res_content.forEach((item) => {
+            item.publish_time = item.publish_time.substring(5,16)
+        });
         that.setData({
-          re:res.data.content
+          re:res_content
         })  
       },
       fail: function (res) {
-        console.log(".....fail.....");
+        console.log("home request fail");
       }
     })
     
