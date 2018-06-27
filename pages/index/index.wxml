@@ -4,7 +4,7 @@
     <!--分类  -->
     <view>
     <scroll-view scroll-x="true" class='category'>
-        <block wx:for='{{["全部","简单问答","快递外卖","替课","技术服务","二手交易"]}}'>
+        <block wx:for='{{["全部","简单问答","快递外卖","替课","技术服务","二手交易"]}}' wx:key="item">
             <view class='category_item' data-index='{{index}}'>
                 {{item}}
             </view>
