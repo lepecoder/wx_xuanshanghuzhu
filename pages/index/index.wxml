@@ -20,7 +20,7 @@
                 <text class='item_content_cate'>{{item.class}}</text>
                 <text class='user_name'>{{item.service_id}}</text>
                 <text class='contact'>联系Ta</text>
-                <view class='item_content_text' bindtap='to_detail'>
+                <view class='item_content_text' id="{{item.post_id}}" bindtap='to_detail'>
                     {{item.article}}
                 </view>
                 <view class='item_content_bottom'>

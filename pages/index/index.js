@@ -14,10 +14,13 @@ Page({
   },
 
   to_detail: function (e) {
-      console.log(e);
+    //   console.log(e["currentTarget"]["id"]);
+
       wx: wx.navigateTo({
-          url: '/pages/item_detail/item_detail',
-          success: function (res) { },
+          url: '/pages/item_detail/item_detail?post_id='+e["currentTarget"]["id"],
+          success: function (res) {
+            //   console.log(res)
+           },
           fail: function (res) { },
           complete: function (res) { },
       })
