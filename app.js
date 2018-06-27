@@ -4,7 +4,7 @@ App({
     openid: "",
     signature:"",
     phonenumber:"",
-    sex:"保密"
+    signature:""
 
   },
 

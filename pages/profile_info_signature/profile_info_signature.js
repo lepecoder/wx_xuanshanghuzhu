@@ -25,9 +25,9 @@ Page({
   onLoad: function (options) {
     var that = this
     wx.getStorage({
-      key: 'phonenumber',
+      key: 'signature',
       success: function (res) {
-        that.setData({ phonenumber: res.data });
+        that.setData({ signature: res.data });
       }
     })
   

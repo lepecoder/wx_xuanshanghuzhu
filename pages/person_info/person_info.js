@@ -248,7 +248,7 @@ setSignature: function (e) {
         that.setData({ phonenumber: getApp().globalData.phonenumber });
      
    
-        that.setData({ sex: getApp().globalData.sex});
+        that.setData({ signature: getApp().globalData.signature});
       
     
     
