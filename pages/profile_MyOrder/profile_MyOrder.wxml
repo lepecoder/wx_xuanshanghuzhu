@@ -1,38 +1,15 @@
 <!--pages/profile_MyOrder/profile_MyOrder.wxml-->
-<view class='container'>
-<block>
+
+    <view wx:for="{{myorder}}" wx:key="mo">  
     <view class='message'>
-        <view class='message_head'>
-            <text class='message_head_text'>接单1</text>
+        <view class='message_text' id="{{item.post_id}}" bindtap='to_detail'>
+            <text class='message_text_text'>{{item.article}}</text>
         </view>
-        <view class='message_text'>
-            <text class='message_text_text'>接单1内容</text>
+        <view class='message_head'>
+            <text class='message_head_text' decode="{{true}}">悬赏人：&emsp;{{item.nick}}</text>
         </view>
         <view class='message_bottom'>
-            <text class='publish_time'>2018-6-12 16:43</text>
+            <text class='publish_time'>悬赏时间：{{item.publish_time}}</text>
         </view>
     </view>
-    <view class='message'>
-        <view class='message_head'>
-            <text class='message_head_text'>接单2</text>
-        </view>
-        <view class='message_text'>
-            <text class='message_text_text'>接单2内容</text>
-        </view>
-        <view class='message_bottom'>
-            <text class='publish_time'>2018-6-12 16:43</text>
-        </view>
     </view>
-    <view class='message'>
-        <view class='message_head'>
-            <text class='message_head_text'>接单3</text>
-        </view>
-        <view class='message_text'>
-            <text class='message_text_text'>接单3内容</text>
-        </view>
-        <view class='message_bottom'>
-            <text class='publish_time'>2018-6-12 16:43</text>
-        </view>
-    </view>
-</block>
-</view>
