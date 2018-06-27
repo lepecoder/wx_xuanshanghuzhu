@@ -29,7 +29,7 @@ Page({
   onLoad: function (option) {
     var that=this
     wx.request({
-      url: 'http://api.admination.cn/restful/show_post_list.php',    //-wait
+      url: 'https://api.admination.cn/restful/show_post_list.php',    //-wait
       data: {
         sJson:'"post_if","title","publish_time"'
       },

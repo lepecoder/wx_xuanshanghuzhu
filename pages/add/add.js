@@ -45,7 +45,7 @@ Page({
       
 
       wx.request({
-        url: 'http://api.admination.cn/restful/add.php', //仅为示例，并非真实的接口地址
+        url: 'https://api.admination.cn/restful/add.php', //仅为示例，并非真实的接口地址
         data: {
           textarea:e.detail.value.content,
           radio: e.detail.value.radio,
@@ -63,23 +63,24 @@ Page({
           wx.showToast({
             title: '发布成功',
             icon: 'succes',
-            duration: 1000,
+            duration: 2000,
             mask: true,
              
           })
-          wx: wx.switchTab({
-            url: '/pages/index/index',
-            success: function (res) { },
-            fail: function (res) { },
-            complete: function (res) { },
-          })
+         
             
         },
         fail:function(){
           console.log(e.detail)
         }
+        
       })
-    
+      wx: wx.switchTab({
+        url: '/pages/index/index',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
       
 
     },
