@@ -42,7 +42,9 @@ Page({
      // console.log(e.detail.value.content)
       //console.log(e.detail.value.radio)
       //console.log(getApp().globalData.openid)
-      
+      console.log(e.detail.value.content)
+      if (e.detail.value.content!=""){
+        console.log("enter")
 
       wx.request({
         url: 'https://api.admination.cn/restful/add.php', //仅为示例，并非真实的接口地址
@@ -56,9 +58,6 @@ Page({
           "Content-Type": "application/x-www-form-urlencoded" // 默认值
         },
         success: function (res) {
-         
-         
-
           console.log(res.data)
           wx.showToast({
             title: '发布成功',
@@ -67,8 +66,7 @@ Page({
             mask: true,
              
           })
-         
-            
+          
         },
         fail:function(){
           console.log(e.detail)
@@ -81,8 +79,14 @@ Page({
         fail: function (res) { },
         complete: function (res) { },
       })
-      
-
+      }
+      else
+        wx.showToast({
+          title: '内容不能为空',
+          icon: 'succes',
+          duration: 1500,
+          mask: true,
+        })
     },
 
   /**

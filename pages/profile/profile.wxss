@@ -12,12 +12,7 @@
     margin-bottom: 20rpx;
     padding-bottom: 30rpx;
 }
-.useinfo_but{
-   width: 200rpx;
-    height: 120rpx;
-    margin-right: 15rpx;
-    vertical-align: middle;
-}
+
 .user_face {
     width: 120rpx;
     height: 120rpx;
@@ -32,6 +27,17 @@
     line-height: 120rpx;
     vertical-align: text-bottom;
   
+}
+
+.userinfo_button{
+    height: 140rpx;
+    width:428rpx;
+    margin-left: 40rpx;
+    line-height: 120rpx;
+    opacity:0;
+    vertical-align: text-bottom;
+    float: right
+
 }
 
 .item_view {

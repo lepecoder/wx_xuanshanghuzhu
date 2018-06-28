@@ -48,6 +48,46 @@ Page({
         })
     },
 
+
+//接单函数
+  acceptOrder:function(e){
+
+    var url = 'https://api.admination.cn/restful/index.php/order/' + getApp().globalData.openid + '/' + e.target.dataset.postid
+    console.log(url)
+    var that = this
+    wx.request({
+      url: url,
+      data: {
+      },
+      header: {
+        'content-type':
+        'application/json'
+      },
+      success: function (res) {
+        console.log("accept order success")
+        wx: wx.switchTab({
+          url: '/pages/index/index',
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
+        wx.showToast({
+          title: '接单成功',
+          icon: 'succes',
+          duration: 1500,
+          mask: true,
+        })
+        console.log(res)
+      },
+      fail: function (res) {
+        console.log("acceot order fail");
+      }
+    })
+
+  },
+
+
+
     //失去焦点触发获取评论内容
     getContent: function (e) {
         var s = "post_data.content";
