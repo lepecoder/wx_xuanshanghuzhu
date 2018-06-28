@@ -171,12 +171,13 @@ console.log("err")
             }
           }
           // console.log(imgs);
+          that.setData({
+            imgs: imgs
+          });
           
         }
       });
-      that.setData({
-        imgs: imgs
-      });
+      
       console.log(that.data.imgs)
     },
 
