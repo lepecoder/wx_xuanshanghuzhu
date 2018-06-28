@@ -12,22 +12,40 @@ Page({
         },
         list: [{}],
         releaseFocus: false,
-        post_id:-1,
+        post_id: -1,
         userInfo: {},
         hasUserInfo: false,
         post_id: '',
         canIUse: wx.canIUse('button.open-type.getUserInfo'),
         // detail: [],
         post_info: {},   //文章信息    
+
         comments: [],     //要显示的帖子的评论
         placeholder: "评论",//初始评论灰色字样
-
+        collectionStatus: 0  //收藏状态
     },
 
-    //
-    realease: function (e) {
-        console.log("发表按钮捕获阶段");
-        console.log(e);
+    //更改收藏状态
+    changeCollectionStatus: function (event) {
+        var url = 'https://api.admination.cn/restful/index.php/collection/' + getApp().globalData.openid + '/' + event.target.dataset.postid
+        console.log(url)
+        var that = this
+        wx.request({
+            url: url,
+            data: {
+            },
+            header: {
+                'content-type':
+                'application/json'
+            },
+            success: function (res) {
+                console.log("change collectionStatus success")
+                console.log(res)
+            },
+            fail: function (res) {
+                console.log("change collect fail");
+            }
+        })
     },
 
     //失去焦点触发获取评论内容
@@ -100,9 +118,9 @@ Page({
     onLoad: function (options) {
         var that = this;//在success回调函数中this已经改变为当前对象，所以要拷贝一份到that里
         this.setData({
-            post_id:options["post_id"]
+            post_id: options["post_id"]
         }),
-        console.log(that.data.post_id);
+            console.log(that.data.post_id);
         wx.request({
             url: 'https://api.admination.cn/restful/index.php/posts/' + that.data.post_id,
             success: function (res) {
@@ -115,7 +133,7 @@ Page({
                     post_info: res.data[0],
                     comments: res.data[0]["comments"]
                 })
-              
+
             },
             fail: function () {
                 console.log('detail request fail')

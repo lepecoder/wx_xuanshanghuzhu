@@ -17,6 +17,34 @@ Page({
       complete: function (res) { },
     })
   },
+
+  /**
+   * 删除我的发布
+   */
+  mypublishDelete:function(e){
+    var that = this
+    console.log('start-------')
+    wx.request({
+      url: 'https://api.admination.cn/restful/index.php/publish/' + getApp().globalData.openid + '/' + e["currentTarget"]["id"],
+      method:'DELETE',
+      data: {
+      },
+      header: {
+        'content-type':
+        'application/json'
+      },
+      success: function (res) {
+        console.log('delete MyPublish success')
+        console.log(res)
+        that.onLoad();
+      },
+      fail: function (res) {
+        console.log("delete MyPublish fail");
+      }
+    })
+
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -33,13 +61,18 @@ Page({
         'application/json'
       },
       success: function (res) {
-        var res_content = res.data;
-        res_content.forEach((item) => {
-          item.publish_time = item.publish_time.substring(5, 16)
-        });
-        that.setData({
-          mypublish: res_content
-        })
+        console.log(res)
+          if(res.statusCode==402)  //用户发布内容为空
+            res.data=[]             
+        
+          var res_content = res.data;
+          res_content.forEach((item) => {
+            item.publish_time = item.publish_time.substring(5, 16)
+          });
+          that.setData({
+            mypublish: res_content
+          })
+        
       },
       fail: function (res) {
         console.log("MyPublish request fail");

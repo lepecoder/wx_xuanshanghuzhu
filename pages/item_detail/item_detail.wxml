@@ -11,7 +11,8 @@
     </view>
     <view class='item_content_bottom'>
         <view class='browse_message'>
-            <image class='collect_png' src='/image/collect.png'></image>
+            <image class='collect_png' wx:if="{{collectionStatus}}" src='/image/Mycollect.png' data-postid="{{post_info.post_id}}" data-serviceid="{{post_info.service_id}}" bindtap='changeCollectionStatus'></image>
+            <image class='collect_png' wx:else src='/image/collect.png'  data-postid="{{post_info.post_id}}" data-serviceid="{{post_info.service_id}}" bindtap='changeCollectionStatus'></image>
             <image class='browse_png' src='/image/browse.png'></image>
             <text class='browse_text'>{{post_info.view}}</text>
             <image class='message_png' src='/image/comment.png'></image>
@@ -41,5 +42,5 @@
 <view class="release">
     <input show-confirm-bar="false" bindconfirm="getContent" bindblur="getContent" class="textarea" placeholder-class="input_null" fixed="true" maxlength="-1" show-confirm-bar="false" cursor-spacing="15" auto-height="true" focus="{{releaseFocus}}" placeholder="{{placeholder}}"
         value="{{content}}"></input>
-    <view class="submit" capture-catch="release" bind:tap='add_after'>发送</view>
+    <view class="submit" bind:tap='add_after'>发送</view>
 </view>

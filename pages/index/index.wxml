@@ -24,8 +24,8 @@
             <view class='item_content_bottom'>
                      <text class='publish_time'>{{item.publish_time}}</text> 
                 <view class='browse_message'>
-                    <image class='collect_png' src='/image/collect.png'></image>
-                    <text class='collect_text'></text>
+                    <image class='collect_png' wx:if="{{item.collectionStatus}}" src='/image/Mycollect.png'></image>
+                    <image class='collect_png' wx:else src='/image/collect.png'></image>
                     <image class='browse_png' src='/image/browse.png'></image>
                     <text class='browse_text'>{{item.view}}</text>
                     <image class='message_png' src='/image/comment.png'></image>
