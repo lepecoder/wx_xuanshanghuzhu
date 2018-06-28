@@ -5,15 +5,18 @@
         <image class='user_face' src="{{post_info.profile_pic}}"></image>
         <text class='item_content_cate'>{{post_info.class}}</text>
         <text class='user_name'>{{post_info.nick}}</text>
-        <text class='publish_time'>{{post_info.publish_time}}</text>
+        <text class='orderStatus' wx:if="{{post_info.accep_service_id!=null}}">已接单</text>
+        <text class='orderStatusAccept' wx:else data-serviceid="{{post_info.service_id}}" data-postid="{{post_info.post_id}}" bindtap='acceptOrder'>我要接单</text>
     </view>
     <view  auto-hight:true class='item_content_text'>
         {{post_info.article}}
     </view>
     <view class='item_content_bottom'>
+        <text class='publish_time'>{{post_info.publish_time}}</text>
         <view class='browse_message'>
-            <image class='collect_png' wx:if="{{collectionStatus}}" src='/image/Mycollect.png' data-postid="{{post_info.post_id}}" data-serviceid="{{post_info.service_id}}" bindtap='changeCollectionStatus'></image>
-            <image class='collect_png' wx:else src='/image/collect.png'  data-postid="{{post_info.post_id}}" data-serviceid="{{post_info.service_id}}" bindtap='changeCollectionStatus'></image>
+            <!-- <image class='collect_png' wx:if="{{collectionStatus}}" src='/image/Mycollect.png' data-postid="{{post_info.post_id}}" data-serviceid="{{post_info.service_id}}" bindtap='changeCollectionStatus'></image>
+            <image class='collect_png' wx:else src='/image/collect.png'  data-postid="{{post_info.post_id}}" data-serviceid="{{post_info.service_id}}" bindtap='changeCollectionStatus'></image> -->
+            <image class='collect_png' src='/image/collect.png' data-postid="{{post_info.post_id}}" data-serviceid="{{post_info.service_id}}" bindtap='changeCollectionStatus'></image>
             <image class='browse_png' src='/image/browse.png'></image>
             <text class='browse_text'>{{post_info.view}}</text>
             <image class='message_png' src='/image/comment.png'></image>

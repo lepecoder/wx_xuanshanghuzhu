@@ -34,6 +34,7 @@
 .item_top {
     height: 100rpx;
     margin-left: 20rpx;
+    margin-right: 40rpx;
 }
 
 .item_top_center {
@@ -91,9 +92,7 @@
 }
 
 .publish_time {
-    margin-top: 10rpx;
-    margin-right: 20rpx;
-    float: right;
+
     font-size: 13px;
     color: #aaa;
 }
@@ -178,4 +177,23 @@
     line-height: 64rpx;
     text-align: center;
     color: #6c0;
+}
+
+.orderStatus {
+    float: right;
+    font-size: 12px;
+    padding: 3px 5px 3px 5px;
+    border-radius: 4px;
+    border: 1px solid #dbdbdb;
+    margin-top: 9rpx;
+    background: #dbdbdb;
+}
+
+.orderStatusAccept {
+    float: right;
+    font-size: 12px;
+    padding: 3px 5px 3px 5px;
+    border-radius: 4px;
+    border: 1px solid #dbdbdb;
+    margin-top: 9rpx;
 }
