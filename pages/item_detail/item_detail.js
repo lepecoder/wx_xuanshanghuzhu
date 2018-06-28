@@ -6,7 +6,7 @@ Page({
         // focus: false,
         post_data: {
             content: "", //评论内容
-            service_id: getApp().globalData.openid, //评论人id
+            service_id: -1, //评论人id
             parent_service_id: -1,   //被评论人id
             parent_id: -1   //被评论的评论的id
         },
@@ -128,9 +128,12 @@ Page({
                 console.log(res.data[0]["publish_time"]);
                 res.data[0].publish_time = res_content.substring(5, 16)
                 console.log(res.data[0]);
+                // that.post_data.parent_service_id = res.data[0].service_id;
+                var pid = "post_data.parent_service_id";
                 that.setData({
                     post_id: options["post_id"],
                     post_info: res.data[0],
+                    [pid]:res.data[0].service_id,
                     comments: res.data[0]["comments"]
                 })
 
