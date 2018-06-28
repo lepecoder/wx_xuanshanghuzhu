@@ -13,7 +13,7 @@
                 <view class='item_content_bottom'>
                     <text class='publish_time'>{{item.publish_time}}</text>
                     <view class='browse_message'>
-                        <image class='collect_png' src='/image/truecollect.png'></image>
+                        <image class='collect_png' src='/image/Mycollect.png' data-postid="{{item.post_id}}" data-serviceid="{{item.collection_service_id}}" bindtap='cancleCollect'>></image>
                          <text class='collect_text'></text>
                         <image class='browse_png' src='/image/browse.png'></image>
                         <text class='browse_text'>{{item.view}}</text>
