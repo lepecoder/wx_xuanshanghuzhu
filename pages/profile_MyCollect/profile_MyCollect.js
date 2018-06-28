@@ -33,11 +33,12 @@ Page({
         'application/json'
       },
       success: function (res) {
+        console.log("cancle mycollect success")
         console.log(res)
         that.onLoad();
       },
       fail: function (res) {
-        console.log("cancle collect fail");
+        console.log("cancle mycollect fail");
       }
     })
 
