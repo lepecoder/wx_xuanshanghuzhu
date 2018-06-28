@@ -1,15 +1,23 @@
 /* pages/item_detail/item_detail.wxss */
 
+.comments_block{
+    padding-bottom: 30rpx;
+}
+
 /* 评论人昵称 */
 
 .comments {
     display: flex;
     flex-flow: row wrap;
-    margin: 20rpx;
+     margin: 20rpx; 
+    /* padding-bottom: 50rpx; */
 }
-
+.res_nick{
+    color: #376956;
+}
 .comments .nick {
     color: #376956;
+    margin-right: 10rpx;
 }
 
 /*评论回复字样  */
@@ -159,7 +167,7 @@
     z-index: 999;
 }
 
-.release .text {
+.release .textarea {
     width: 604rpx;
     min-height: 34rpx;
     max-height: 102rpx; /*最多显示三行*/

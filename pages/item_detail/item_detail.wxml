@@ -1,5 +1,4 @@
 <!--pages/item_detail/item_detail.wxml-->
-<!-- <view>{{post_info.post_id}}</view>  -->
 <view class='item'>
     <view class='item_top'>
         <image class='user_face' src="{{post_info.profile_pic}}"></image>
@@ -7,7 +6,7 @@
         <text class='user_name'>{{post_info.nick}}</text>
         <text class='publish_time'>{{post_info.publish_time}}</text>
     </view>
-    <view  auto-hight:true class='item_content_text'>
+    <view auto-hight:true class='item_content_text'>
         {{post_info.article}}
     </view>
     <view class='item_content_bottom'>
@@ -22,26 +21,25 @@
     </view>
 </view>
 <!-- 循环评论 -->
-<view class='comments' wx:for="{{comments}}" wx:key="item">
-    <!--评论人昵称  -->
-    <text class="nick" bindtap='bindReply' >{{item.unick}}</text>
-    <view class='res'  wx:if="{{item.parent_id!=-1}}" bindtap="bindReply1">回复{{item.pnick}}</view>
-    <!-- <view>{{item.parent_id}}</view> -->
-  <!--评论内容  -->
-    <text class='res_content'>: {{item.content}}</text>
+<view class='comments_block'>
+    <!--comment_id是本条评论id    data-uid是发评论的人的id-->
+    <view id="{{item.comment_id}}" data-uid="{{item.uid}}" data-unick="{{item.unick}}" class='comments' wx:for="{{comments}}" wx:key="item" bindtap='bindReply'>
+        <!--评论人昵称  -->
+        <text class="nick">{{item.unick}}</text>
+        <view class='res' wx:if="{{item.parent_id!=-1}}">回复
+            <text class="res_nick">{{item.pnick}}</text>
+        </view>
+        <!-- <view>{{item.parent_id}}</view> -->
+        <!--评论内容  -->
+        <text class='res_content'>: {{item.content}}</text>
 
-    <!--回复人时输入框的样式和响应-->
-      <view  class="release"  hidden="{{!releaseFocus}}" >
-        <textarea class="text"  bindblur="bindTextAreaBlur"  placeholder-class="input_null" fixed="true"                          maxlength="-1" show-confirm-bar="false" cursor-spacing="15" auto-height="true" focus="{{releaseFocus}}"                   placeholder="回复" value="{{content}}"></textarea>
-         <view class="submit"  bindtap='add_after' >发送</view>
-      </view>
-    <!--  -->
+
+    </view>
 </view>
 
-
-    <!--回复帖子时输入框的样式响应（在循环外）-->
-      <view  class="release"  hidden="{{releaseFocus}}" >
-        <textarea class="text"  bindblur="bindTextAreaBlur"  placeholder-class="input_null" fixed="true"                            maxlength="-1" show-confirm-bar="false" cursor-spacing="15" auto-height="true" focus="{{releaseFocus}}"           placeholder="评论" value="{{content}}"></textarea>
-         <view class="submit"  bindtap='add_after'  >发送</view>
-      </view>
-   
+<!--回复帖子时输入框的样式响应（在循环外）-->
+<view class="release">
+    <input show-confirm-bar="false" bindconfirm="getContent" bindblur="getContent" class="textarea" placeholder-class="input_null" fixed="true" maxlength="-1" show-confirm-bar="false" cursor-spacing="15" auto-height="true" focus="{{releaseFocus}}" placeholder="{{placeholder}}"
+        value="{{content}}"></input>
+    <view class="submit" capture-catch="release" bind:tap='add_after'>发送</view>
+</view>

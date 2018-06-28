@@ -1,61 +1,93 @@
 // pages/item_detail/item_detail.js
 const app = getApp()
 Page({
-
     data: {
-        height: 20,
-        focus: false,
-        content: '',
+        // height: 20,
+        // focus: false,
+        post_data: {
+            content: "", //评论内容
+            service_id: getApp().globalData.openid, //评论人id
+            parent_service_id: -1,   //被评论人id
+            parent_id: -1   //被评论的评论的id
+        },
         list: [{}],
         releaseFocus: false,
+        post_id:-1,
         userInfo: {},
         hasUserInfo: false,
         post_id: '',
         canIUse: wx.canIUse('button.open-type.getUserInfo'),
         // detail: [],
         post_info: {},   //文章信息    
-        comments: [],     //评论
+        comments: [],     //要显示的帖子的评论
+        placeholder: "评论",//初始评论灰色字样
 
     },
-    bindTextAreaBlur: function (e) {
-        this.setData({
-            content: e.detail.value,
-        })
 
+    //
+    realease: function (e) {
+        console.log("发表按钮捕获阶段");
+        console.log(e);
+    },
+
+    //失去焦点触发获取评论内容
+    getContent: function (e) {
+        var s = "post_data.content";
+        this.setData({
+            [s]: e.detail.value,//更新评论内容
+            releaseFocus: false, //失去焦点
+        })
+        console.log("获取到新发评论内容");
+        console.log(this.data);
     },
     RequestData: function (e) {
-        console.log(this.data.post_info.comments);
+        console.log(e);
     },
     /**
      * 页面的初始数据
      */
+    //点击发送事件
     add_after: function (e) {
-        var that = this
-        var parentid = 0
-        /**判断是不是本人评论 */
-        if (that.data.post_info.service_id == getApp().globalData.openid) {
-            parentid = -1
-        }
-        else {
-            parentid = 3
-        }
+        var sid = "post_data.service_id";
+        this.setData({
+            releaseFocus: false, //失去焦点            
+            [sid]: getApp().globalData.openid
+        })
+        console.log(e);
+        var that = this;
         /**上传 */
+        console.log("要上传的数据");
+        console.log(that.data.post_data);
         wx.request({
             url: 'https://api.admination.cn/restful/index.php/comment/' + that.data.post_id,
             method: "POST",
-            data: {
-                service_id: getApp().globalData.openid,
-                parent_service_id: that.data.post_info.service_id,
-                parent_id: parentid,
-                content: that.data.content
-            },
-
+            data: that.data.post_data,
             header: {
                 "Content-Type": "application/json"
             },
             success: function (res) {
-                // that.onLoad()
                 console.log(res);
+                //成功后重新获取数据
+                wx.request({
+                    url: 'https://api.admination.cn/restful/index.php/posts/' + that.data.post_id,
+                    success: function (res) {
+                        var res_content = res.data[0]["publish_time"];
+                        console.log(res.data[0]["publish_time"]);
+                        res.data[0].publish_time = res_content.substring(5, 16)
+                        console.log(res.data[0]);
+                        that.setData({
+                            // post_id: options["post_id"],
+                            post_info: res.data[0],
+                            comments: res.data[0]["comments"]
+                        })
+                        console.log("上传后新的comments");
+                        console.log(that.data.comments);
+
+                    },
+                    fail: function () {
+                        console.log('detail request fail')
+                    }
+                })
             },
             fail: function () {
                 console.log('detail request fail')
@@ -67,25 +99,23 @@ Page({
      */
     onLoad: function (options) {
         var that = this;//在success回调函数中this已经改变为当前对象，所以要拷贝一份到that里
+        this.setData({
+            post_id:options["post_id"]
+        }),
+        console.log(that.data.post_id);
         wx.request({
-            url: 'https://api.admination.cn/restful/index.php/posts/' + options["post_id"],
+            url: 'https://api.admination.cn/restful/index.php/posts/' + that.data.post_id,
             success: function (res) {
                 var res_content = res.data[0]["publish_time"];
                 console.log(res.data[0]["publish_time"]);
                 res.data[0].publish_time = res_content.substring(5, 16)
                 console.log(res.data[0]);
                 that.setData({
-                    // <<<<<<< HEAD
                     post_id: options["post_id"],
                     post_info: res.data[0],
                     comments: res.data[0]["comments"]
                 })
-                //                 console.log(res);
-                // =======
-                //                   post_info: res.data[0],
-                //                   comments: res.data[0]["comments"]
-                //                 })
-                // >>>>>>> c80ee695ef377b817fe31900dd05648263ef39ac
+              
             },
             fail: function () {
                 console.log('detail request fail')
@@ -93,12 +123,23 @@ Page({
         })
     },
     /**
-    * 点击回复 通过releaseFocus来判断是回复帖子还是回复人
+    * 点击评论事件
     */
     bindReply: function (e) {
+        console.log(e);
+        //parent_service_id: -1,   //被评论人id
+        //  parent_id: -1   //被评论的评论的id
+        var place = e.currentTarget.dataset.unick;
+        var pid = "post_data.parent_id";
+        var uid = "post_data.parent_service_id";
         this.setData({
-            releaseFocus: true,
+            releaseFocus: true, //得到焦点
+            placeholder: "reply " + place,//评论框显示被回复人
+            [pid]: e.currentTarget.id, //得到被评论的评论的id
+            [uid]: e.currentTarget.dataset.uid, //得到被评论的人的id
+
         })
+
     },
 
     /**
