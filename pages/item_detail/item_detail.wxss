@@ -1,17 +1,20 @@
 /* pages/item_detail/item_detail.wxss */
 
 /* 评论人昵称 */
+.comments{
+  display:flex;
+  flex-flow:row wrap;
+   margin: 20rpx;
+}
 .comments .nick{
-    color: #376956;
-    margin: 20rpx;
+    color: #376956; 
 }
 
 /*评论回复字样  */
 .comment .res{
     color: #C9C9C9;
-    display: inline;
 }
-
+/*  */
 .comment .res_content{
     color: #707070;
 }
@@ -71,7 +74,6 @@
 .item_content_text {
     margin: 10px 30rpx 0rpx;
 }
-
 .item_content_bottom {
     margin: 15rpx 30rpx 20rpx;
     height: 50rpx;
