@@ -46,6 +46,7 @@ Page({
      // console.log(e.detail.value.content)
       //console.log(e.detail.value.radio)
       //console.log(getApp().globalData.openid)
+
    
       wx.getStorage({
         key: 'avatar',
@@ -60,6 +61,10 @@ Page({
             })
             else{
             //console.log(that.data.imgs)
+      console.log(e.detail.value.content)
+      if (e.detail.value.content!=""){
+        console.log("enter")
+
 
       wx.request({
         url: 'https://api.admination.cn/restful/add.php', //仅为示例，并非真实的接口地址
@@ -99,6 +104,7 @@ console.log("err")
          
 
           //console.log(res.data)
+          console.log(res.data)
           wx.showToast({
             title: '发布成功',
             icon: 'succes',
@@ -106,8 +112,7 @@ console.log("err")
             mask: true,
              
           })
-         
-            
+          
         },
         fail:function(){
           console.log(e.detail)
@@ -122,6 +127,7 @@ console.log("err")
         complete: function (res) { },
       })
           }
+        }
         }
 
       })
@@ -191,6 +197,7 @@ console.log("err")
       });
     },
     addd: function (e) {
+
 
     },
 

@@ -17,19 +17,17 @@
             <view class='item_content'>
                 <text class='item_content_cate'>{{item.class}}</text>
                 <text class='user_name'>{{item.nick}}</text>
-                <text class='contact'>联系Ta</text>
+                <text class='orderStatus' wx:if="{{item.accep_service_id!=null}}">已接单</text>
                 <view class='item_content_text' id="{{item.post_id}}" bindtap='to_detail'>
                     {{item.article}}
                 </view>
             <view class='item_content_bottom'>
                      <text class='publish_time'>{{item.publish_time}}</text> 
                 <view class='browse_message'>
-                    <image class='collect_png' src='/image/collect.png'></image>
-                    <text class='collect_text'></text>
                     <image class='browse_png' src='/image/browse.png'></image>
                     <text class='browse_text'>{{item.view}}</text>
                     <image class='message_png' src='/image/comment.png'></image>
-                    <text class='message_text'>{{item.favors}}</text>
+                    <text class='message_text'>{{item.comments_count}}</text>
                 </view> 
             </view>
             </view>

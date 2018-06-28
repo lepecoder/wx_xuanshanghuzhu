@@ -1,7 +1,7 @@
 /* pages/profile_MyMessage/profile_MyMessage.wxss */
 
  .message {
-    padding: 3px 5px 3px 5px;
+    padding: 3px 5px 20px 5px;
     margin-top: 10px;
     margin-left: 10px;
     border-bottom: 1px solid #aaa;
@@ -10,21 +10,27 @@
 
 .message_head {
     font-size: 15px;
-    color: #376956;
 }
 
+.message_head_text {
+    font-size: 15px;
+    color: #43CD80;
+}
+
+
 .message_text_text {
+
     font-size: 13px;
     margin-top:10px;
 }
 
 .message_bottom {
-    
+    float: right;
 }
 
 .publish_time {
-    
     font-size: 13px;
     color: #aaa;
+    margin-right:15px;
 }
 

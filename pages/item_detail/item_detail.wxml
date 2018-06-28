@@ -1,58 +1,49 @@
 <!--pages/item_detail/item_detail.wxml-->
-<!-- <view>{{post_info.post_id}}</view>  -->
 <view class='item'>
-    <view class='item_top'>
-        <image class='user_face' src="{{post_info.profile_pic}}"></image>
-        <text class='item_content_cate'>{{post_info.class}}</text>
-        <text class='user_name'>{{post_info.nick}}</text>
-        <text class='publish_time'>{{post_info.publish_time}}</text>
+  <view class='item_top'>
+    <image class='user_face' src="{{post_info.profile_pic}}"></image>
+    <text class='item_content_cate'>{{post_info.class}}</text>
+    <text class='user_name'>{{post_info.nick}}</text>
+    <text class='orderStatus' wx:if="{{post_info.accep_service_id!=null}}">已接单</text>
+    <text class='orderStatusAccept' wx:else data-serviceid="{{post_info.service_id}}" data-postid="{{post_info.post_id}}" bindtap='acceptOrder'>我要接单</text>
+  </view>
+  <view auto-hight:true class='item_content_text'>
+    {{post_info.article}}
+  </view>
+  <view class='item_content_bottom'>
+    <text class='publish_time'>{{post_info.publish_time}}</text>
+    <view class='browse_message'>
+    <!-- <view>{{collectionStatus}}</view> -->
+      <image class='collect_png' wx:if="{{collectionStatus==1}}" src='/image/Mycollect.png' data-postid="{{post_info.post_id}}" data-serviceid="{{post_info.service_id}}" bindtap='changeCollectionStatus'></image>
+      <image class='collect_png' wx:else src='/image/collect.png' data-postid="{{post_info.post_id}}" data-serviceid="{{post_info.service_id}}" bindtap='changeCollectionStatus'></image>
+      <image class='browse_png' src='/image/browse.png'></image>
+      <text class='browse_text'>{{post_info.view}}</text>
+      <image class='message_png' src='/image/comment.png'></image>
+      <text class='message_text'>{{commentCount}}</text>
     </view>
-    <view class='item_content_text'>
-        {{post_info.article}}
-    </view>
-    <view class='item_content_bottom'>
-        <view class='browse_message'>
-            <image class='collect_png' src='/image/collect.png'></image>
-            <image class='browse_png' src='/image/browse.png'></image>
-            <text class='browse_text'>{{post_info.view}}</text>
-            <image class='message_png' src='/image/comment.png'></image>
-            <text class='message_text'>{{post_info.favors}}</text>
-        </view>
 
-    </view>
+  </view>
 </view>
-
-<view bindtap="RequestData">回复</view>
-
 <!-- 循环评论 -->
-<view class='comments' wx:for="{{comments}}" wx:key="item">
+<view class='comments_block'>
+  <!--comment_id是本条评论id    data-uid是发评论的人的id-->
+  <view id="{{item.comment_id}}" data-uid="{{item.uid}}" data-unick="{{item.unick}}" class='comments' wx:for="{{comments}}" wx:key="item" bindtap='bindReply'>
     <!--评论人昵称  -->
     <text class="nick">{{item.unick}}</text>
-    <view class='res'  wx:if="{{item.parent_id!=-1}}">回复</view>
+    <view class='res' wx:if="{{item.parent_id!=-1}}">回复
+      <text class="res_nick">{{item.pnick}}</text>
+    </view>
     <!-- <view>{{item.parent_id}}</view> -->
     <!--评论内容  -->
     <text class='res_content'>: {{item.content}}</text>
-    <!--  -->
 
+
+  </view>
 </view>
 
-
-
-<!--
-<scroll-view scroll-y="true" style="height: 200px" wx:for="{{comments}}"  wx:key="item">
-    {{item.unick}}
-    <view bindtap="remove" class="delete"> 删除 </view>
-    <view class="talk" bindtap="bindReply">回复</view>
-
-    <view class="release" hidden="{{!releaseFocus}}">
-        <textarea class="text" placeholder-class="input_null" fixed="true" maxlength="-1" show-confirm-bar="false" cursor-spacing="15" auto-height="true" focus="{{releaseFocus}}" placeholder="回复 {{releaseName}}"></textarea>
-        <view class="submit">发送</view>
-    </view>
-</scroll-view>
-<form bindsubmit="add_after">
-    <view style="opacity:{{1}}" class='item_bottom'>
-        <textarea style="opacity:{{1}}" auto-hight name="input" class='item_bottom_textarea' bindblur="bindTextAreaBlur" placeholder="在这里输入您的评论" value="{{ceshi}}" />
-        <button class='item_bottom_send' formType="submit">提交</button>
-    </view>
-</form>
-  -->
+<!--回复帖子时输入框的样式响应（在循环外）-->
+<view class="release">
+  <input show-confirm-bar="false" bindconfirm="getContent" bindblur="getContent" class="textarea" placeholder-class="input_null" fixed="true" maxlength="-1" show-confirm-bar="false" cursor-spacing="15" auto-height="true" focus="{{releaseFocus}}" placeholder="{{placeholder}}"
+    value="{{content}}"></input>
+  <view class="submit" bind:tap='add_after'>发送</view>
+</view>
