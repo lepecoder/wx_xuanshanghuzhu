@@ -81,8 +81,8 @@ Page({
           console.log("111")
           //console.log(that.data.imgs)
           var id=res.data
-         
-          for (var index in that.data.imgs){
+          var imgurls=that.data.imgs
+          for (var index in imgurls){
             //console.log(that.data.imgs[0])
             wx.uploadFile({
               url: 'https://api.admination.cn/restful/uploadimg.php', //仅为示例，非真实的接口地址
@@ -94,6 +94,8 @@ Page({
               success: function (res) {
                console.log(id)
                 console.log(res.data)
+                that.setData({ imgs: [] });
+                
                 //do something
               },
               fail:function(){
