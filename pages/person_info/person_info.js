@@ -5,13 +5,19 @@ Page({
    * 页面的初始数据
    */
   data: {
+  
+    //sex: '男',
+    //region: ['上海市', '上海市', '黄浦区'],
+    avatar: '/image/avatar.png',
+
+
       region: ['上海市', '上海市', '黄浦区'],
       customItem: '',
       sexs:['保密','男','女'],
       sex:'保密',
       imgUrl: '',    //如果imgurl不为空，则显示我们上传的图片，如果为空，就使用用户自己的头像
       username:'',
-      phonenumber:'',
+      phonenumber:'123',
       signature:''
   },
   
@@ -20,7 +26,7 @@ Page({
       this.setData({
           region: e.detail.value
       })
-      getApp().globalData.region = this.data.region;
+     
 
   },
 
@@ -29,10 +35,78 @@ Page({
       this.setData({
           sex: this.data.sexs[e.detail.value]
       })
-      getApp().globalData.sex = this.data.sex;
+     
+  },
+  sendmess:function(e){
+    console.log("jinru")
+    var that = this
+    var sex_int = that.data.sex
+    if (sex_int == "保密")
+      sex_int = -1
+    else if (sex_int == "男")
+      sex_int = 0
+    else
+      sex_int = 1
+    console.log(that.data.phonenumber)
+    wx.request({
+
+      url: 'https://api.admination.cn/restful/index.php/user/' + getApp().globalData.openid,
+      method: "POST",
+      data: {
+        nick: that.data.username,
+        sex: sex_int,
+        phone: that.data.phonenumber,
+        province: that.data.region[0],
+        city: that.data.region[1],
+        district: that.data.region[2],
+        signature: that.data.signature,
+        profile_pic: that.data.imgUrl
+
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+
+      success: function (res) {
+       // console.log(res.data)
+        // 登录成功
+        if (res.statusCode === 200) {
+          wx.setStorage({
+            key: "signature",
+            data: getApp().globalData.signature
+          })
+          wx.setStorage({
+            key: "phonenumber",
+            data: getApp().globalData.phonenumber
+          })
+          //console.log(that.data.sex)
+          wx.setStorage({
+            key: "region",
+            data: that.data.region
+          }) 
+          wx.setStorage({
+            key: "sex",
+            data: that.data.sex
+          }) 
+          wx.navigateBack({
+            delta: 1
+          })
+
+          console.log(res.data)
+
+
+        }
+        else console.log(res.statusCode)
+      },
+      fail:function(){
+        console.log("err")
+      }
+    })
   },
 
-  selectImage: function (e) {
+
+
+  /*selectImage: function (e) {
       var that = this;
       wx.chooseImage({
           count: 1, // 默认9
@@ -46,9 +120,9 @@ Page({
           }
       })
       
-  },
+  },*/
 
-setUsername:function(e){
+/*setUsername:function(e){
     console.log(e);
     wx: wx.navigateTo({
         url: '/pages/profile_info_username/profile_info_username?',
@@ -56,10 +130,10 @@ setUsername:function(e){
         fail: function (res) { },
         complete: function (res) { },
     })
-},
+},*/
 
 setPhonenumber:function(e){
-    console.log(e);
+   // console.log(e);
     wx: wx.navigateTo({
         url: '/pages/profile_info_phonenumber/profile_info_phonenumber?',
         success: function (res) { },
@@ -69,7 +143,7 @@ setPhonenumber:function(e){
 },
 
 setSignature: function (e) {
-    console.log(e);
+    //console.log(e);
     wx: wx.navigateTo({
         url: '/pages/profile_info_signature/profile_info_signature?',
         success: function (res) { },
@@ -82,12 +156,52 @@ setSignature: function (e) {
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      this.setData({ username: getApp().globalData.username}) ;
-      this.setData({ phonenumber: getApp().globalData.phonenumber }) ;
-      this.setData({ signature: getApp().globalData.signature });
-      this.setData({ sex: getApp().globalData.sex });
-      this.setData({ region: getApp().globalData.region });
-      this.setData({ imgUrl: getApp().globalData.avatar});
+    var that=this
+    wx.getStorage({
+      key: 'username',
+      success: function (res) {
+        that.setData({ username: res.data });
+      }
+
+    })
+    wx.getStorage({
+      key: 'avatar',
+      success: function (res) {
+        that.setData({ imgUrl: res.data });
+      }
+    })   
+    wx.getStorage({
+      key: 'sex',
+      success: function (res) {
+        that.setData({ sex: res.data });
+      }
+
+    })
+    wx.getStorage({
+      key: 'region',
+      success: function (res) {
+        that.setData({ region: res.data });
+      }
+    }) 
+
+    wx.getStorage({
+      key: 'phonenumber',
+      success: function (res) {
+        that.setData({ phonenumber: res.data });
+      }
+    
+    })
+
+    wx.getStorage({
+      key: 'signature',
+      success: function (res) {
+        that.setData({ signature: res.data });
+      }
+    })    
+    
+      
+
+     
       
   
   },
@@ -103,12 +217,48 @@ setSignature: function (e) {
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-      this.setData({ username: getApp().globalData.username }); 
-      this.setData({ phonenumber: getApp().globalData.phonenumber }) ;
-      this.setData({ signature: getApp().globalData.signature });
-      this.setData({ sex: getApp().globalData.sex });
-      this.setData({ region: getApp().globalData.region });
-      this.setData({ imgUrl: getApp().globalData.avatar });
+    var that = this
+    wx.getStorage({
+      key: 'username',
+      success: function (res) {
+        that.setData({ username: res.data });
+      }
+
+    })
+    wx.getStorage({
+      key: 'avatar',
+      success: function (res) {
+        that.setData({ imgUrl: res.data });
+      }
+    })
+    wx.getStorage({
+      key: 'sex',
+      success: function (res) {
+        that.setData({ sex: res.data });
+      }
+
+    })
+    wx.getStorage({
+      key: 'regin',
+      success: function (res) {
+        that.setData({ regin: res.data });
+      }
+    })
+    
+        that.setData({ phonenumber: getApp().globalData.phonenumber });
+     
+   
+        that.setData({ signature: getApp().globalData.signature});
+      
+    
+    
+    
+    
+   
+      
+
+    
+    
   
   },
 
@@ -116,13 +266,20 @@ setSignature: function (e) {
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+    
+
+
+
+       
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
+    
+      
+
   
   },
 

@@ -75,14 +75,105 @@ phone_call:function(e){
         }
     })  
 },
+  bindGetUserInfo: function (e) {
+    wx.getStorage({
+      key: 'avatar',
+      success: function (res) {
+        if(res.data==""){
+          wx.getSetting({
+            success: function (res) {
+              if (res.authSetting['scope.userInfo']) {
+                // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+                wx.getUserInfo({
+                  success: function (res) {
+                    wx.setStorage({
+                      key: "username",
+                      data: res.userInfo.nickName
+                    })
+                    wx.setStorage({
+                      key: "avatar",
+                      data: res.userInfo.avatarUrl
+                    })
+                    wx: wx.navigateTo({
+                      url: '/pages/person_info/person_info',
+                      success: function (res) { },
+                      fail: function (res) { },
+                      complete: function (res) { },
+                    })
+                  },
+                  fail: function () {
+                    
+                      wx.showToast({
+                        title: '获取失败',
+                        icon: 'succes',
+                        duration: 2000,
+                        mask: true,
+
+                      })
+                  }
+                })
+              }
+            },
+            fail:function(){
+              wx.showToast({
+                title: '未授权',
+                icon: 'succes',
+                duration: 2000,
+                mask: true,
+
+              })
+
+            }
+
+          })
+          
+        }
+        else {
+          wx: wx.navigateTo({
+            url: '/pages/person_info/person_info',
+            success: function (res) { },
+            fail: function (res) { },
+            complete: function (res) { },
+          })
+
+        }
+      },
+      fail:function(){
+        wx.showToast({
+          title: '未找到',
+          icon: 'succes',
+          duration: 2000,
+          mask: true,
+
+        })
+
+      }
+    })   
+    
+    
+
+   
+   // console.log(e.detail.userInfo)
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      var name = getApp().globalData.username;
-      this.setData({ username: name});
-      this.setData({ imgUrl: getApp().globalData.avatar });
+    var that = this
+    wx.getStorage({
+      key: 'username',
+      success: function (res) {
+        that.setData({ username: res.data });
+      }
+      
+    })
+    wx.getStorage({
+      key: 'avatar',
+      success: function (res) {
+        that.setData({ imgUrl: res.data});
+      }
+    })   
   
   },
 
@@ -97,10 +188,23 @@ phone_call:function(e){
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-      var name = getApp().globalData.username;
-      this.setData({ username: name });
-      this.setData({ imgUrl: getApp().globalData.avatar });
-  
+     
+    var that = this
+    wx.getStorage({
+      key: 'username',
+      success: function (res) {
+        that.setData({ username: res.data });
+      }
+
+    })
+    wx.getStorage({
+      key: 'avatar',
+      success: function (res) {
+        that.setData({ imgUrl: res.data });
+      }
+    })
+
+          
   },
 
   /**

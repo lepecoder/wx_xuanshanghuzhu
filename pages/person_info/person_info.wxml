@@ -2,13 +2,13 @@
 
 <view class='container'>
     <!--个人信息  -->
-    <view   class='item_view_top' bindtap='selectImage'>
+    <view   class='item_view_top' >
         <text class='item_text'>头像</text>
         <image wx:if='{{imgUrl!=null}}' class='item_png' src='{{imgUrl}}'></image>
         <image wx:else class='item_png' src='{{imgUrl}}'></image>
     </view>
 
-    <view class='item_view' bindtap='setUsername'>
+    <view class='item_view' >
         <text class='item_text'>名字</text>
          <text class='person_value'>{{username}}</text> 
 
@@ -39,4 +39,5 @@
         <text  class='item_text'>个性签名</text>
         <text class='person_value'>{{signature}}</text>
     </view>
+    <button bindtap='sendmess'>提交</button>
 </view>

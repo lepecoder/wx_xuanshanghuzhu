@@ -7,23 +7,21 @@
 }  
 
 
-.message_head {
-    font-size: 15px;
-    color: #376956;
+.message_head,.publish_time {
+    font-size: 13px;
+    color: #aaa;
+    margin-top:10px;
 }
 
 .message_text_text {
-    font-size: 13px;
-    margin-top:10px;
+  display:-webkit-box; 
+  overflow:hidden; 
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+    
 }
 
 .message_bottom {
     
-}
-
-.publish_time {
-    
-    font-size: 13px;
-    color: #aaa;
 }
 

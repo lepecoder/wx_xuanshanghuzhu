@@ -72,12 +72,22 @@ Page({
         wx.request({
           url: 'https://api.admination.cn/restful/index.php/posts/' + options["post_id"],
             success: function (res) {
+              var res_content = res.data[0]["publish_time"];
+              console.log(res.data[0]["publish_time"]);
+              res.data[0].publish_time = res_content.substring(5, 16)
+              console.log(res.data[0]);
                 that.setData({
+// <<<<<<< HEAD
                     post_id: options["post_id"],
                     post_info: res.data[0],
                     comments: res.data[0]["comments"]
                 })
-                console.log(res);
+//                 console.log(res);
+// =======
+//                   post_info: res.data[0],
+//                   comments: res.data[0]["comments"]
+//                 })
+// >>>>>>> c80ee695ef377b817fe31900dd05648263ef39ac
             },
             fail: function () {
                 console.log('detail request fail')

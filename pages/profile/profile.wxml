@@ -1,9 +1,10 @@
 <!--pages/profile/profile.wxml-->
 <view class='container'>
     <!--顶部个人栏  -->
-    <view class='person'  bindtap='to_info' >
+    <view class='person'   >
         <image class='user_face' src='{{imgUrl}}'></image>
         <text class='user_name'>{{username}}</text>
+        <button  class='useinfo_but' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">修改</button>
     </view>
 
     <!--我的发布  -->
