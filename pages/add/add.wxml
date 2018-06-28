@@ -5,11 +5,28 @@
         <!--文字内容  -->
         <view class='form_content'>
             <textarea  class='textarea' value="{{mess}}" auto-focus='true' placeholder="输入内容..." name='content' id="con" ></textarea>
+
+<view class='mig'>
+<view  wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
+     <image class='pic'src="{{item}}" data-index="{{index}}" bindlongtap="deleteImg" mode="aspectFill" bindtap="previewImg"></image>
+    
+  </view>
+  <view><image class='pic' bindtap="chooseImg" src='/image/pic.png'></image></view>
+  </view>
+  
+
+         
+
+
+
+               
             <button formType="submit" class='sub_btn'>发表</button>
+            
+        
+
         </view>
         <!--添加图片  -->
-        <image class='pic' src='/image/pic.png'></image>
-        <image class='mcf' src='/image/mcf.png'></image>
+        
 
 
         <text class='sel_cate'>选择分类</text>

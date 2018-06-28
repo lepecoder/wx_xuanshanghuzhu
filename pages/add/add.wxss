@@ -25,15 +25,18 @@
     padding: 0;
     color: white;
     background-color: #43cd80;
+    border: 1rpx  solid #43cd80;
     border-radius: 50rpx;
     font-size: 30rpx;
 }
 
 .pic, .mcf{
-    width: 50rpx;
-    height: 50rpx;
+    width: 150rpx;
+    height: 150rpx;
     margin-top: 20rpx;
-    margin-left: 25rpx;
+    margin-left: 15rpx;
+   border: 1rpx  solid #43cd80;
+   
 }
 .mcf{
     margin-left: 40rpx;
@@ -56,6 +59,11 @@
     display: inline-block;
     border: 1px solid #CCC;
     border-radius: 32rpx;
+}
+.mig{
+ width: 700rpx;
+  display:flex;
+  flex-direction: row;
 }
 
 
