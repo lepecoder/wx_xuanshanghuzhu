@@ -4,8 +4,6 @@ App({
     openid: "",
     signature:"",
     phonenumber:"",
-    signature:""
-
   },
 
   /**
@@ -18,14 +16,14 @@ App({
       success: function (res) {
         that.globalData.openid = res.data
         //console.log(getApp().globalData.openid)
-        console.log("getuccess")
+        console.log("get user openid success")
         wx.getStorage({
           key: 'avatar',
           success: function(res) {
-            console.log("getva")
+            console.log("get user avatar success")
           },
           fail:function(){
-            console.log("getvafail")
+            console.log("get user avatar fail")
             wx.setStorage({
               key: "openid",
               data: res.data
@@ -38,23 +36,10 @@ App({
               key: "avatar",
               data: "",
               success: function (res) {
-                wx.showToast({
-                  title: "setcg",
-                  icon: 'succes',
-                  duration: 2000,
-                  mask: true,
-
-                })
 
               },
               fail: function () {
-                wx.showToast({
-                  title: 'set失败',
-                  icon: 'succes',
-                  duration: 2000,
-                  mask: true,
-
-                })
+                
               }
             })
             wx.setStorage({

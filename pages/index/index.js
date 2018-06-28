@@ -9,7 +9,8 @@ Page({
    */
   data: {
     re:[],
-    current:0
+    current:0,
+
   },
 
   //tab切换
@@ -20,17 +21,13 @@ Page({
       var url = 'https://api.admination.cn/restful/show_post_list.php'
     else 
       var url = 'https://api.admination.cn/restful/show_post_list.php?class=' + event.target.dataset.current
-    
-    console.log(url)
 
+    console.log(url)
     var that = this
     wx.request({
-
       url: url,    //-wait
       data: {
-
       },
-
       header: {
         'content-type':
         'application/json'
@@ -98,7 +95,7 @@ Page({
       wx: wx.navigateTo({
           url: '/pages/item_detail/item_detail?post_id='+e["currentTarget"]["id"],
           success: function (res) {
-            //   console.log(res)
+            //console.log(res)
            },
           fail: function (res) { },
           complete: function (res) { },
@@ -111,18 +108,16 @@ Page({
   onLoad: function (option) {
     var that=this
     wx.request({
-
       url: 'https://api.admination.cn/restful/show_post_list.php',    //-wait
-      data: {
-       
+      data: {  
       },
-
       header: {
         'content-type':
         'application/json'
       },
       success: function (res) {
         var res_content = res.data.content;
+
         res_content.forEach((item) => {
             item.publish_time = item.publish_time.substring(5,16)
         });
@@ -134,8 +129,7 @@ Page({
         console.log("home request fail");
       }
     })
-    
-    
+
   },
 
   /**

@@ -18,7 +18,6 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     // detail: [],
     post_info: {}, //文章信息    
-
     comments: [], //要显示的帖子的评论
     placeholder: "评论", //初始评论灰色字样
     collectionStatus: 0, //0表示没收藏，1表示收藏
@@ -140,7 +139,9 @@ Page({
             that.setData({
               // post_id: options["post_id"],
               post_info: res.data[0],
-              comments: res.data[0]["comments"]
+              comments: res.data[0]["comments"],
+              commentCount: that.data.commentCount+1
+            
             })
             console.log("上传后新的comments");
             console.log(that.data.comments);
@@ -171,7 +172,7 @@ Page({
       url: 'https://api.admination.cn/restful/index.php/posts/' + that.data.post_id,
       success: function(res) {
         var res_content = res.data[0]["publish_time"];
-        console.log(res.data[0].comments.length);
+        //console.log(res.data[0].comments.length);
         res.data[0].publish_time = res_content.substring(5, 16)
         console.log(res.data[0]);
         // that.post_data.parent_service_id = res.data[0].service_id;
@@ -188,8 +189,6 @@ Page({
         console.log('detail request fail')
       }
     })
-
-
     //获取收藏状态collectionStatus
     var that = this
     var url = 'https://api.admination.cn/restful/index.php/collection/' + getApp().globalData.openid + '/' + that.data.post_id;
@@ -203,7 +202,7 @@ Page({
       },
       success: function(res) {
         console.log("accept collectionStatus success")
-        console.log(res.data)
+        //console.log(res.data)
         that.setData({
           collectionStatus: res.data
         })

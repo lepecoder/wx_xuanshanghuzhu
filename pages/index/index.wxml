@@ -27,7 +27,7 @@
                     <image class='browse_png' src='/image/browse.png'></image>
                     <text class='browse_text'>{{item.view}}</text>
                     <image class='message_png' src='/image/comment.png'></image>
-                    <text class='message_text'>{{item.favors}}</text>
+                    <text class='message_text'>{{item.comments_count}}</text>
                 </view> 
             </view>
             </view>
