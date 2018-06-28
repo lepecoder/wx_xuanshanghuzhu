@@ -5,7 +5,7 @@
             <view class='item_content'>
                 <text class='item_content_cate'>{{item.class}}</text>
                 <text class='user_name'>{{item.nick}}</text>
-                <text class='contact'>联系Ta</text>
+                <text class='contact' bindtap='mypublishDelete'>删除</text>
                 <view class='item_content_text' id="{{item.post_id}}" bindtap='to_detail'>
                     {{item.article}}
                 </view>
