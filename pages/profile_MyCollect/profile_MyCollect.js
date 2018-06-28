@@ -59,6 +59,9 @@ Page({
         'application/json'
       },
       success: function (res) {
+        console.log(res)
+        if(res.statusCode==404)    //用户没有收藏内容
+          res.data=[]
         var res_content = res.data;
         res_content.forEach((item) => {
           item.publish_time = item.publish_time.substring(5, 16)

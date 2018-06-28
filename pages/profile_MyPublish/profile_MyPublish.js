@@ -62,10 +62,9 @@ Page({
       },
       success: function (res) {
         console.log(res)
-        if(res.statusCode==402){
-            //do nothing 
-        }
-        else{
+          if(res.statusCode==402)  //用户发布内容为空
+            res.data=[]             
+        
           var res_content = res.data;
           res_content.forEach((item) => {
             item.publish_time = item.publish_time.substring(5, 16)
@@ -73,7 +72,7 @@ Page({
           that.setData({
             mypublish: res_content
           })
-        }
+        
       },
       fail: function (res) {
         console.log("MyPublish request fail");
