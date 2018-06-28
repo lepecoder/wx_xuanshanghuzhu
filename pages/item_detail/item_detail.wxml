@@ -9,11 +9,16 @@
   </view>
   <view auto-hight:true class='item_content_text'>
     {{post_info.article}}
+    <!-- 循环图片 -->
+    <view wx:for="{{imgs}}" wx:key="item">
+      <image class='images' mode="{{aspectFit}}" src='{{item.img_url}}'></image>
+    </view>
+
   </view>
   <view class='item_content_bottom'>
     <text class='publish_time'>{{post_info.publish_time}}</text>
     <view class='browse_message'>
-    <!-- <view>{{collectionStatus}}</view> -->
+      <!-- <view>{{collectionStatus}}</view> -->
       <image class='collect_png' wx:if="{{collectionStatus==1}}" src='/image/Mycollect.png' data-postid="{{post_info.post_id}}" data-serviceid="{{post_info.service_id}}" bindtap='changeCollectionStatus'></image>
       <image class='collect_png' wx:else src='/image/collect.png' data-postid="{{post_info.post_id}}" data-serviceid="{{post_info.service_id}}" bindtap='changeCollectionStatus'></image>
       <image class='browse_png' src='/image/browse.png'></image>
@@ -36,8 +41,6 @@
     <!-- <view>{{item.parent_id}}</view> -->
     <!--评论内容  -->
     <text class='res_content'>: {{item.content}}</text>
-
-
   </view>
 </view>
 

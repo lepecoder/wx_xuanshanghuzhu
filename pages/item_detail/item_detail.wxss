@@ -205,3 +205,8 @@
     border: 1px solid #dbdbdb;
     margin-top: 9rpx;
 }
+
+.images{
+ width: 50px; 
+ height: 50px;
+}

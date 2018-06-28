@@ -21,7 +21,8 @@ Page({
     comments: [], //要显示的帖子的评论
     placeholder: "评论", //初始评论灰色字样
     collectionStatus: 0, //0表示没收藏，1表示收藏
-    commentCount: 0 //评论数
+    commentCount: 0, //评论数
+    imgs:[]   //图片
   },
 
   //更改收藏状态
@@ -169,7 +170,7 @@ Page({
       }),
     //console.log(that.data.post_id);
     wx.request({
-      url: 'https://api.admination.cn/restful/index.php/posts/' + that.data.post_id,
+      url: 'https://api.admination.cn/restful/index.php/posts/'+ that.data.post_id,
       success: function(res) {
         var res_content = res.data[0]["publish_time"];
         //console.log(res.data[0].comments.length);
@@ -182,8 +183,11 @@ Page({
           post_info: res.data[0],
           [pid]: res.data[0].service_id,
           comments: res.data[0]["comments"],
-          commentCount: res.data[0].comments.length
+          commentCount: res.data[0].comments.length,
+          imgs: res.data[0]["imgs"]
+          
         })
+        console.log(that.data.imgs)
       },
       fail: function() {
         console.log('detail request fail')
