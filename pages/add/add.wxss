@@ -34,8 +34,8 @@
     width: 150rpx;
     height: 150rpx;
     margin-top: 20rpx;
-    margin-left: 15rpx;
-   border: 1rpx  solid #43cd80;
+    margin-left: 15rpx；
+  
    
 }
 .mcf{

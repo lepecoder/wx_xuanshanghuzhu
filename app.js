@@ -36,18 +36,18 @@ App({
               key: "avatar",
               data: "",
               success: function (res) {
-<<<<<<< HEAD
+
                
 
               },
               fail: function () {
                
-=======
+
 
               },
               fail: function () {
                 
->>>>>>> 196ac566f2a8092ba60829441fe834302dc303b2
+
               }
             })
             wx.setStorage({
