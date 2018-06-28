@@ -5,17 +5,19 @@ Page({
     data: {
         height: 20,
         focus: false,
-        ceshi: '',
+        content: '',
         list: [{}],
         releaseFocus: false,
-
         userInfo: {},
         hasUserInfo: false,
+        post_id: '',
         canIUse: wx.canIUse('button.open-type.getUserInfo'),
         // detail: [],
         post_info: {},   //文章信息    
         comments: [],      //评论
         collectionStatus:0  //收藏状态
+
+
     },
 
 //更改收藏状态
@@ -44,9 +46,10 @@ Page({
 
 
     bindTextAreaBlur: function (e) {
-        // this.setData({
-        //     ceshi: e.detail.value
-        // })
+        this.setData({
+            content: e.detail.value,
+        })
+
     },
     RequestData: function (e) {
         console.log(this.data.post_info.comments);
@@ -54,36 +57,38 @@ Page({
     /**
      * 页面的初始数据
      */
-
     add_after: function (e) {
+        var that = this
+        var parentid = 0
+        /**判断是不是本人评论 */
+        if (that.data.post_info.service_id == getApp().globalData.openid) {
+            parentid = -1
+        }
+        else {
+            parentid = 3
+        }
+        /**上传 */
+        wx.request({
+            url: 'https://api.admination.cn/restful/index.php/comment/' + that.data.post_id,
+            method: "POST",
+            data: {
+                service_id: getApp().globalData.openid,
+                parent_service_id: that.data.post_info.service_id,
+                parent_id: parentid,
+                content: that.data.content
+            },
 
-        // //要增加的数组
-        // var newarray = [{
-        //     name: this.data.ceshi,
-        // }];
-
-
-        // this.setData({
-        //     list: this.data.list.concat(newarray)
-        // });
-
-
-    },
-    remove: function (e) {
-
-        // var index = e.target.dataset.index
-        // var id = e.currentTarget.dataset.id //获取下标
-        // //通过`index`识别要删除第几条数据，第二个数据为要删除的项目数量，通常为1
-        // this.data.list.splice(index, 1);
-        // //渲染数据
-        // this.setData({
-        //     list: this.data.list
-
-        // });
-        // console.log("1111" + e.target.dataset);
-        // console.log('44444:' + index);
-
-
+            header: {
+                "Content-Type": "application/json"
+            },
+            success: function (res) {
+                // that.onLoad()
+                console.log(res);
+            },
+            fail: function () {
+                console.log('detail request fail')
+            }
+        })
     },
     /**
      * 生命周期函数--监听页面加载
@@ -93,14 +98,22 @@ Page({
         wx.request({
             url: 'https://api.admination.cn/restful/index.php/posts/' + options["post_id"],
             success: function (res) {
-              var res_content = res.data[0]["publish_time"];
-              console.log(res.data[0]["publish_time"]);
-              res.data[0].publish_time = res_content.substring(5, 16)
-              console.log(res.data[0]);
+                var res_content = res.data[0]["publish_time"];
+                console.log(res.data[0]["publish_time"]);
+                res.data[0].publish_time = res_content.substring(5, 16)
+                console.log(res.data[0]);
                 that.setData({
-                  post_info: res.data[0],
-                  comments: res.data[0]["comments"]
+                    // <<<<<<< HEAD
+                    post_id: options["post_id"],
+                    post_info: res.data[0],
+                    comments: res.data[0]["comments"]
                 })
+                //                 console.log(res);
+                // =======
+                //                   post_info: res.data[0],
+                //                   comments: res.data[0]["comments"]
+                //                 })
+                // >>>>>>> c80ee695ef377b817fe31900dd05648263ef39ac
             },
             fail: function () {
                 console.log('detail request fail')
@@ -108,11 +121,11 @@ Page({
         })
     },
     /**
-    * 点击回复
+    * 点击回复 通过releaseFocus来判断是回复帖子还是回复人
     */
     bindReply: function (e) {
         this.setData({
-            releaseFocus: true
+            releaseFocus: true,
         })
     },
 
@@ -122,14 +135,11 @@ Page({
     onReady: function () {
 
     },
-
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
     },
-
     /**
      * 生命周期函数--监听页面隐藏
      */
