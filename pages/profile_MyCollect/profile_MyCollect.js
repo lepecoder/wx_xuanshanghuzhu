@@ -9,10 +9,11 @@ Page({
   },
 
   to_detail: function (e) {
-    console.log(e);
     wx: wx.navigateTo({
-      url: '/pages/MyCollect/Mycollcet',
-      success: function (res) { },
+      url: '/pages/item_detail/item_detail?post_id=' + e["currentTarget"]["id"],
+      success: function (res) {
+        //   console.log(res)
+      },
       fail: function (res) { },
       complete: function (res) { },
     })

@@ -12,7 +12,8 @@
     </view>
     <view class='item_content_bottom'>
         <view class='browse_message'>
-            <image class='collect_png' src='/image/collect.png'></image>
+            <image class='collect_png' wx:if="{{collectionStatus}}" src='/image/Mycollect.png' data-postid="{{post_info.post_id}}" data-serviceid="{{post_info.service_id}}" bindtap='changeCollectionStatus'></image>
+            <image class='collect_png' wx:else src='/image/collect.png'  data-postid="{{post_info.post_id}}" data-serviceid="{{post_info.service_id}}" bindtap='changeCollectionStatus'></image>
             <image class='browse_png' src='/image/browse.png'></image>
             <text class='browse_text'>{{post_info.view}}</text>
             <image class='message_png' src='/image/comment.png'></image>

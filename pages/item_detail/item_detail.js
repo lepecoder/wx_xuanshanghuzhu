@@ -14,8 +14,35 @@ Page({
         canIUse: wx.canIUse('button.open-type.getUserInfo'),
         // detail: [],
         post_info: {},   //文章信息    
-        comments: []      //评论
+        comments: [],      //评论
+        collectionStatus:0  //收藏状态
     },
+
+//更改收藏状态
+    changeCollectionStatus: function (event) {
+      var url = 'https://api.admination.cn/restful/index.php/collection/' + getApp().globalData.openid + '/' + event.target.dataset.postid
+      console.log(url)
+      var that = this
+      wx.request({
+        url: url,
+        data: {
+        },
+        header: {
+          'content-type':
+          'application/json'
+        },
+        success: function (res) {
+          console.log("change collectionStatus success")
+          console.log(res)
+        },
+        fail: function (res) {
+          console.log("change collect fail");
+        }
+      })
+    },
+
+
+
     bindTextAreaBlur: function (e) {
         // this.setData({
         //     ceshi: e.detail.value
