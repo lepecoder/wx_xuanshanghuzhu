@@ -7,7 +7,7 @@
         <text class='user_name'>{{post_info.nick}}</text>
         <text class='publish_time'>{{post_info.publish_time}}</text>
     </view>
-    <view class='item_content_text'>
+    <view  auto-hight:true class='item_content_text'>
         {{post_info.article}}
     </view>
     <view class='item_content_bottom'>
@@ -21,38 +21,27 @@
 
     </view>
 </view>
-
-<view bindtap="RequestData">回复</view>
-
 <!-- 循环评论 -->
 <view class='comments' wx:for="{{comments}}" wx:key="item">
     <!--评论人昵称  -->
-    <text class="nick">{{item.unick}}</text>
-    <view class='res' wx:if="{{item.parent_id!=-1}}">回复</view>
+    <text class="nick" bindtap='bindReply' >{{item.unick}}</text>
+    <view class='res'  wx:if="{{item.parent_id!=-1}}" bindtap="bindReply1">回复{{item.pnick}}</view>
     <!-- <view>{{item.parent_id}}</view> -->
-    <!--评论内容  -->
+  <!--评论内容  -->
     <text class='res_content'>: {{item.content}}</text>
-    <!--  -->
 
+    <!--回复人时输入框的样式和响应-->
+      <view  class="release"  hidden="{{!releaseFocus}}" >
+        <textarea class="text"  bindblur="bindTextAreaBlur"  placeholder-class="input_null" fixed="true"                          maxlength="-1" show-confirm-bar="false" cursor-spacing="15" auto-height="true" focus="{{releaseFocus}}"                   placeholder="回复" value="{{content}}"></textarea>
+         <view class="submit"  bindtap='add_after' >发送</view>
+      </view>
+    <!--  -->
 </view>
 
 
-
-<!--
-<scroll-view scroll-y="true" style="height: 200px" wx:for="{{comments}}"  wx:key="item">
-    {{item.unick}}
-    <view bindtap="remove" class="delete"> 删除 </view>
-    <view class="talk" bindtap="bindReply">回复</view>
-
-    <view class="release" hidden="{{!releaseFocus}}">
-        <textarea class="text" placeholder-class="input_null" fixed="true" maxlength="-1" show-confirm-bar="false" cursor-spacing="15" auto-height="true" focus="{{releaseFocus}}" placeholder="回复 {{releaseName}}"></textarea>
-        <view class="submit">发送</view>
-    </view>
-</scroll-view>
-<form bindsubmit="add_after">
-    <view style="opacity:{{1}}" class='item_bottom'>
-        <textarea style="opacity:{{1}}" auto-hight name="input" class='item_bottom_textarea' bindblur="bindTextAreaBlur" placeholder="在这里输入您的评论" value="{{ceshi}}" />
-        <button class='item_bottom_send' formType="submit">提交</button>
-    </view>
-</form>
-  -->
+    <!--回复帖子时输入框的样式响应（在循环外）-->
+      <view  class="release"  hidden="{{releaseFocus}}" >
+        <textarea class="text"  bindblur="bindTextAreaBlur"  placeholder-class="input_null" fixed="true"                            maxlength="-1" show-confirm-bar="false" cursor-spacing="15" auto-height="true" focus="{{releaseFocus}}"           placeholder="评论" value="{{content}}"></textarea>
+         <view class="submit"  bindtap='add_after'  >发送</view>
+      </view>
+   

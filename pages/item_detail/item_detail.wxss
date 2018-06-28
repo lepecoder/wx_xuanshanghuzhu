@@ -1,25 +1,24 @@
 /* pages/item_detail/item_detail.wxss */
 
-/*评论浮动  */
-.comments{
+/* 评论人昵称 */
+
+.comments {
     display: flex;
     flex-flow: row wrap;
     margin: 20rpx;
 }
 
-/* 评论人昵称 */
-
 .comments .nick {
     color: #376956;
-    margin: 20rpx;
 }
 
 /*评论回复字样  */
 
 .comment .res {
     color: #c9c9c9;
-    display: inline;
 }
+
+/*  */
 
 .comment .res_content {
     color: #707070;
