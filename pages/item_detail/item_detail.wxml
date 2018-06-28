@@ -28,7 +28,7 @@
 <view class='comments' wx:for="{{comments}}" wx:key="item">
     <!--评论人昵称  -->
     <text class="nick">{{item.unick}}</text>
-    <view class='res'  wx:if="{{item.parent_id!=-1}}">回复</view>
+    <view class='res' wx:if="{{item.parent_id!=-1}}">回复</view>
     <!-- <view>{{item.parent_id}}</view> -->
     <!--评论内容  -->
     <text class='res_content'>: {{item.content}}</text>
