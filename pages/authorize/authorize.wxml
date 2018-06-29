@@ -1,0 +1,3 @@
+<!--pages/authorize/authorize.wxml-->
+<text>欢迎进入悬赏平台</text>
+<button  class='userinfo_button' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">开始使用</button>

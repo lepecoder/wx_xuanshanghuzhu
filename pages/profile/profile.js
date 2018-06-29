@@ -9,6 +9,15 @@ Page({
       imgUrl:''
   
   },
+  enter:function(){
+    wx: wx.navigateTo({
+      url: '/pages/person_info/person_info',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+
+  },
 
   to_info: function(e){ 
         console.log(e);
