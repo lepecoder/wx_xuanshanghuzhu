@@ -7,11 +7,14 @@
 
             <view class='mig'>
                 <view wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
+                    
                     <image class='pic' src="{{item}}" data-index="{{index}}" bindlongtap="deleteImg" mode="aspectFill" bindtap="previewImg"></image>
 
                 </view>
                 <view>
-                    <image class='pic' bindtap="chooseImg" src='/image/pic.png'></image>
+                  
+                    <!-- <image class='pic' bindtap="chooseImg" src='/image/pic.png'></image> -->
+                    <button bindtap="chooseImg" class="push_img">+</button>
                 </view>
             </view>
 

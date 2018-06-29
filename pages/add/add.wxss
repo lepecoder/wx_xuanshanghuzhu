@@ -3,6 +3,16 @@
 .container {
     /* border: 1px solid red; */
 }
+/*添加图片  */
+.push_img{
+    color: #666;
+    width:160rpx;
+    height: 160rpx;
+    border: 1px dashed #70bcf6; 
+    background-color: #FFF;
+    text-align: center;
+    line-height: 160rpx;
+}
 
 .form_content {
     padding: 30rpx;
@@ -30,7 +40,7 @@
     font-size: 30rpx;
 }
 
-.pic, .mcf{
+.mcf{
     width: 150rpx;
     height: 150rpx;
     margin-top: 20rpx;
