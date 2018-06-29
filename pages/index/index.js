@@ -10,6 +10,7 @@ Page({
   data: {
     re:[],
     current:0,
+    tabUrl:'https://api.admination.cn/restful/show_post_list.php',
 
   },
 
@@ -22,8 +23,12 @@ Page({
     else 
       var url = 'https://api.admination.cn/restful/show_post_list.php?class=' + event.target.dataset.current
 
-    console.log(url)
     var that = this
+    that.setData({
+      tabUrl: url
+    })
+    console.log(url)
+    
     wx.request({
       url: url,    //-wait
       data: {
@@ -109,6 +114,7 @@ Page({
     var that = this
     
     wx.getSetting({
+   
       success: function (res) {
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称
@@ -164,7 +170,7 @@ Page({
       }
     })
    
-   
+   //---
   },
 
   /**
