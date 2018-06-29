@@ -1,5 +1,6 @@
 ### 微信小程序--悬赏互助平台
 
+
 ### 开发背景
 通过微信小程序接单或发布任务。
 可惜小程序不允许临时会话而在小程序里私聊又不能在退出小程序后获得提醒，所以。。。。**项目没有实际使用价值**，可以使用html5或是直接开发原生应用。
@@ -79,14 +80,15 @@
 ```
 
 ### 项目预览
-![](http://p1f1jwe7c.bkt.clouddn.com/18-6-29/3783884.jpg)
-![](http://p1f1jwe7c.bkt.clouddn.com/18-6-29/19989831.jpg)
-![](http://p1f1jwe7c.bkt.clouddn.com/18-6-29/77650622.jpg)
-![](http://p1f1jwe7c.bkt.clouddn.com/18-6-29/18449371.jpg)
-![](http://p1f1jwe7c.bkt.clouddn.com/18-6-29/14755115.jpg)
-![](http://p1f1jwe7c.bkt.clouddn.com/18-6-29/78202889.jpg)
-![](http://p1f1jwe7c.bkt.clouddn.com/18-6-29/26101099.jpg)
-![](http://p1f1jwe7c.bkt.clouddn.com/18-6-29/70650192.jpg)
-![](http://p1f1jwe7c.bkt.clouddn.com/18-6-29/68555828.jpg)
-
+<div text-align=center>
+	<img width="150" src="http://p1f1jwe7c.bkt.clouddn.com/18-6-29/3783884.jpg"/>
+	<img width="150" src="http://p1f1jwe7c.bkt.clouddn.com/18-6-29/19989831.jpg"/>
+	<img width="150" src="http://p1f1jwe7c.bkt.clouddn.com/18-6-29/77650622.jpg"/>
+	<img width="150" src="http://p1f1jwe7c.bkt.clouddn.com/18-6-29/18449371.jpg"/>
+	<img width="150" src="http://p1f1jwe7c.bkt.clouddn.com/18-6-29/14755115.jpg"/>
+	<img width="150" src="http://p1f1jwe7c.bkt.clouddn.com/18-6-29/78202889.jpg"/>
+	<img width="150" src="http://p1f1jwe7c.bkt.clouddn.com/18-6-29/26101099.jpg"/>
+	<img width="150" src="http://p1f1jwe7c.bkt.clouddn.com/18-6-29/70650192.jpg"/>
+	<img width="150" src="http://p1f1jwe7c.bkt.clouddn.com/18-6-29/68555828.jpg"/>
+</div>
 
