@@ -86,6 +86,7 @@ phone_call:function(e){
                 // 已经授权，可以直接调用 getUserInfo 获取头像昵称
                 wx.getUserInfo({
                   success: function (res) {
+                    var info=res.userInfo
                     wx.setStorage({
                       key: "username",
                       data: res.userInfo.nickName
@@ -99,6 +100,42 @@ phone_call:function(e){
                       success: function (res) { },
                       fail: function (res) { },
                       complete: function (res) { },
+                    })
+                    wx.request({
+
+                      url: 'https://api.admination.cn/restful/index.php/user/' + getApp().globalData.openid,
+                      method: "POST",
+                      data: {
+                        nick: info.nickName,
+                        sex: "保密",
+                        phone: "",
+                        province: "",
+                        city: "",
+                        district: "",
+                        signature: "",
+                        profile_pic: info.avatarUrl
+
+                      },
+                      header: {
+                        'content-type': 'application/json' // 默认值
+                      },
+
+                      success: function (res) {
+                        // console.log(res.data)
+                        // 登录成功
+                        if (res.statusCode === 200) {
+                         
+                         
+
+                          console.log(res.data)
+
+
+                        }
+                        else console.log(res.statusCode)
+                      },
+                      fail: function () {
+                        console.log("err")
+                      }
                     })
                   },
                   fail: function () {
