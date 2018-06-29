@@ -1,8 +1,8 @@
 {
   "pages": [  
+    "pages/index/index",
     "pages/authorize/authorize",
     "pages/re_authorize/re_authorize",
-    "pages/index/index",
     "pages/add/add",
     "pages/profile/profile",
     "pages/person_info/person_info",

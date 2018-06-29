@@ -106,30 +106,65 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (option) {
-    var that=this
-    wx.request({
-      url: 'https://api.admination.cn/restful/show_post_list.php',    //-wait
-      data: {  
-      },
-      header: {
-        'content-type':
-        'application/json'
-      },
+    var that = this
+    
+    wx.getSetting({
       success: function (res) {
-        var res_content = res.data.content;
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+          wx.getUserInfo({
+            success: function (res) {
+              console.log("shouquan")
+              wx.request({
+                url: 'https://api.admination.cn/restful/show_post_list.php',    //-wait
+                data: {
+                },
+                header: {
+                  'content-type':
+                  'application/json'
+                },
+                success: function (res) {
+                  var res_content = res.data.content;
 
-        res_content.forEach((item) => {
-            item.publish_time = item.publish_time.substring(5,16)
-        });
-        that.setData({
-          re:res_content
-        })  
+                  res_content.forEach((item) => {
+                    item.publish_time = item.publish_time.substring(5, 16)
+                  });
+                  that.setData({
+                    re: res_content
+                  })
+                },
+                fail: function (res) {
+                  console.log("home request fail");
+                }
+              })
+
+             
+             
+            },
+            fail: function () {
+              wx.redirectTo({
+                url: '/pages/authorize/authorize'
+              })
+            }
+          })
+        }
+        else
+          wx.redirectTo({
+            url: '/pages/authorize/authorize'
+          })
+     
+
+
       },
-      fail: function (res) {
-        console.log("home request fail");
+      fail:function(){
+        console.log("err1")
+        wx.redirectTo({
+          url: '/pages/authorize/authorize'
+        })
       }
     })
-
+   
+   
   },
 
   /**
