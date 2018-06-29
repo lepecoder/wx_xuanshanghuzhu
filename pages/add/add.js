@@ -87,7 +87,7 @@ Page({
             //console.log(that.data.imgs[0])
             wx.uploadFile({
               url: 'https://api.admination.cn/restful/uploadimg.php', //
-              filePath: that.data.imgs[0],
+              filePath: that.data.imgs[index],
               name: 'file',
               formData: {
                 'post_id': id
@@ -142,7 +142,25 @@ console.log("err")
       var that = this;
       var imgs = that.data.imgs;
       //console.log(imgs.length)
-      
+      if (imgs.length >= 6) {
+          this.setData({
+              lenMore: 1,
+              addImg_hide: false//true隐藏添加框，待修改
+          });
+          setTimeout(function () {
+              that.setData({
+                  lenMore: 0
+              });
+          }, 2500);
+          wx.showToast({
+              title: '已达上限，长按删除',
+              icon: 'fail',
+              duration: 2000,
+              mask: true,
+
+          })
+          return false;
+      }
       wx.chooseImage({
         count: 6, // 默认9
         sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
@@ -171,25 +189,7 @@ console.log("err")
       });
       
       console.log(that.data.imgs)
-      if (imgs.length >= 5) {
-          this.setData({
-              lenMore: 1,
-              addImg_hide: false//true隐藏添加框，待修改
-          });
-          setTimeout(function () {
-              that.setData({
-                  lenMore: 0
-              });
-          }, 2500);
-          wx.showToast({
-              title: '已达上限，长按删除',
-              icon: 'fail',
-              duration: 2000,
-              mask: true,
-
-          })
-          return false;
-      }
+    
     },
 
     // 删除图片

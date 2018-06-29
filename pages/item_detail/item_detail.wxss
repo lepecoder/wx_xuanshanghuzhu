@@ -1,7 +1,7 @@
 /* pages/item_detail/item_detail.wxss */
 
 .comments_block{
-    padding-bottom: 30rpx;
+    padding-bottom: 130rpx;
 }
 
 /* 评论人昵称 */
