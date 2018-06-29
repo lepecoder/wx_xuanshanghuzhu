@@ -10,7 +10,7 @@
     <view auto-hight:true class='item_content_text'>
         <view class='article'>{{post_info.article}}</view>
         <!-- 循环图片 -->
-        <view wx:if="{{imgs}}">
+        <view wx:if="{{imgs}}" wx:key="im}">
             <image bindtap="imgYu" data-list="{{imgs}}" data-src="{{dImg}}" wx:for="{{imgs}}" wx:for-item="dImg" src="{{dImg}}"></image>
         </view>
 
