@@ -22,7 +22,7 @@ Page({
       else
       wx.showToast({
         title: '长度过大',
-        icon: 'succes',
+        icon: 'none',
         duration: 2000,
         mask: true,
 

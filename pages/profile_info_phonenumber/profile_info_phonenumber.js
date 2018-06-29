@@ -21,7 +21,7 @@ Page({
       else{
         wx.showToast({
           title: '请输入11位号码',
-          icon: 'succes',
+          icon: 'none',
           duration: 2000,
           mask: true,
 
