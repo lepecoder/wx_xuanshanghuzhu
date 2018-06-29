@@ -1,14 +1,14 @@
 /* pages/add/add.wxss */
 
-.container {
-    /* border: 1px solid red; */
-}
+
 /*添加图片  */
 .push_img{
+    font-size: 46rpx;
     color: #666;
     width:160rpx;
     height: 160rpx;
     border: 1px dashed #70bcf6; 
+    border-radius: 16rpx;
     background-color: #FFF;
     text-align: center;
     line-height: 160rpx;
@@ -21,9 +21,6 @@
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
     padding-bottom: 80rpx;
-}
-
-.textarea {
 }
 
 .sub_btn {
@@ -47,6 +44,9 @@
     margin-left: 15rpx；
   
    
+}
+.pic{
+  border: 1rpx dashed #ccc;
 }
 .mcf{
     margin-left: 40rpx;

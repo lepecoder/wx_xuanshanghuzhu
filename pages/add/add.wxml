@@ -12,9 +12,7 @@
 
                 </view>
                 <view>
-                  
-                    <!-- <image class='pic' bindtap="chooseImg" src='/image/pic.png'></image> -->
-                    <button bindtap="chooseImg" class="push_img">+</button>
+                     <view bindtap="chooseImg" class="push_img">+</view> 
                 </view>
             </view>
 
