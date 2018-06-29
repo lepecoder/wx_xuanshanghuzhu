@@ -7,13 +7,12 @@
 
             <view class='mig'>
                 <view wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
-                    
+
                     <image class='pic' src="{{item}}" data-index="{{index}}" bindlongtap="deleteImg" mode="aspectFill" bindtap="previewImg"></image>
 
                 </view>
-                <view>
-                     <view bindtap="chooseImg" class="push_img">+</view> 
-                </view>
+                    <view hidden='{{addImg_hide}}' bindtap="chooseImg" class="push_img">+</view>
+                <view class='clear'></view>                
             </view>
 
             <button formType="submit" class='sub_btn'>发表</button>
@@ -24,11 +23,7 @@
 
 
         <text class='sel_cate'>选择分类</text>
-        <!-- <block wx:for='{{["简单问答","快递外卖","替课","技术服务","二手交易"]}}'>
-            <view class='category_item' data-index='{{index}}'>
-                {{item}}
-            </view>
-        </block>  -->
+
 
         <radio-group name='radio' class="radio-group">
             <label wx:key='name' class="radio_lebal" wx:for="{{cate}}" wx:for-item="cate">

@@ -15,7 +15,8 @@ Page({
           { name: 'ershou', value: '二手交易', color: '#666'},
       ],
       imgs:[ ],
-      post_id:''
+      post_id:'',
+      addImg_hide:false
   },
 
     radio_tap: function(e){
@@ -141,24 +142,7 @@ console.log("err")
       var that = this;
       var imgs = that.data.imgs;
       //console.log(imgs.length)
-      if (imgs.length >= 6) {
-        this.setData({
-          lenMore: 1
-        });
-        setTimeout(function () {
-          that.setData({
-            lenMore: 0
-          });
-        }, 2500);
-        wx.showToast({
-          title: '已达上线',
-          icon: 'succes',
-          duration: 2000,
-          mask: true,
-
-        })
-        return false;
-      }
+      
       wx.chooseImage({
         // count: 1, // 默认9
         sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
@@ -187,6 +171,25 @@ console.log("err")
       });
       
       console.log(that.data.imgs)
+      if (imgs.length >= 5) {
+          this.setData({
+              lenMore: 1,
+              addImg_hide: true
+          });
+          setTimeout(function () {
+              that.setData({
+                  lenMore: 0
+              });
+          }, 2500);
+          wx.showToast({
+              title: '已达上限，长按删除',
+              icon: 'fail',
+              duration: 2000,
+              mask: true,
+
+          })
+          return false;
+      }
     },
 
     // 删除图片
