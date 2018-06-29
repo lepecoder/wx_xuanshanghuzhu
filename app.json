@@ -20,8 +20,7 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "济南大学悬赏互助平台",
-    "navigationBarTextStyle": "black",
-    // "enablePullDownRefresh": true
+    "navigationBarTextStyle": "black"
   },
   "networkTimeout": {
     "request": 3000

@@ -2,17 +2,18 @@
 
 <view class="container">
     <!--分类  -->
-   <view>
-    <scroll-view scroll-x="true" class='category'>
-        <block wx:for='{{cate}}' wx:key="item">
-            <view class='category_item' style=" color:{{item.color}}" data-index='{{index}}' data-current='{{item.value}}' bindtap='tab'>
-                {{item.value}}
-            </view>
-        </block>
-    </scroll-view>
-   </view>
-          <block>
-          <view class='item' wx:for="{{re}}" wx:key="re">
+    <view>
+        <scroll-view scroll-x="true" class='category'>
+            <block wx:for='{{cate}}' wx:key="item">
+                <view class='category_item' style=" color:{{item.color}}" data-index='{{index}}' data-current='{{item.value}}' bindtap='tab'>
+                    {{item.value}}
+                </view>
+            </block>
+        </scroll-view>
+
+    </view>
+    <view class="block_content">
+        <view class='item' wx:for="{{re}}" wx:key="re">
             <image class='user_face' src='{{item.profile_pic}}'></image>
             <view class='item_content'>
                 <text class='item_content_cate'>{{item.class}}</text>
@@ -21,16 +22,16 @@
                 <view class='item_content_text' id="{{item.post_id}}" bindtap='to_detail'>
                     {{item.article}}
                 </view>
-            <view class='item_content_bottom'>
-                     <text class='publish_time'>{{item.publish_time}}</text> 
-                <view class='browse_message'>
-                    <image class='browse_png' src='/image/browse.png'></image>
-                    <text class='browse_text'>{{item.view}}</text>
-                    <image class='message_png' src='/image/comment.png'></image>
-                    <text class='message_text'>{{item.comments_count}}</text>
-                </view> 
+                <view class='item_content_bottom'>
+                    <text class='publish_time'>{{item.publish_time}}</text>
+                    <view class='browse_message'>
+                        <image class='browse_png' src='/image/browse.png'></image>
+                        <text class='browse_text'>{{item.view}}</text>
+                        <image class='message_png' src='/image/comment.png'></image>
+                        <text class='message_text'>{{item.comments_count}}</text>
+                    </view>
+                </view>
             </view>
-            </view>
-          </view>
-          </block>
+        </view>
+    </view>
 </view>
