@@ -68,7 +68,7 @@ Page({
 
 
       wx.request({
-        url: 'https://api.admination.cn/restful/add.php', //仅为示例，并非真实的接口地址
+        url: 'https://api.admination.cn/restful/add.php', //
         data: {
           textarea:e.detail.value.content,
           radio: e.detail.value.radio,
@@ -86,7 +86,7 @@ Page({
           for (var index in imgurls){
             //console.log(that.data.imgs[0])
             wx.uploadFile({
-              url: 'https://api.admination.cn/restful/uploadimg.php', //仅为示例，非真实的接口地址
+              url: 'https://api.admination.cn/restful/uploadimg.php', //
               filePath: that.data.imgs[0],
               name: 'file',
               formData: {
@@ -174,7 +174,7 @@ console.log("err")
       if (imgs.length >= 5) {
           this.setData({
               lenMore: 1,
-              addImg_hide: true
+              addImg_hide: false//true隐藏添加框，待修改
           });
           setTimeout(function () {
               that.setData({
