@@ -10,6 +10,15 @@ Page({
   data: {
     re:[],
     current:0,
+    //发布分类
+    cate: [
+        { name: 'all', value: '全部', checked: 'true', color: ' #43cd80' },        
+        { name: 'kuaidi', value: '快递外卖', checked: 'true', color: ' #43cd80' },
+        { name: 'jiandan', value: '简单问答', color: '#666' },
+        { name: 'tike', value: '替课', color: '#666' },
+        { name: 'jishu', value: '技术服务', color: '#666' },
+        { name: 'ershou', value: '二手交易', color: '#666' },
+    ],
 
   },
 

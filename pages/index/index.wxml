@@ -4,13 +4,13 @@
     <!--分类  -->
    <view>
     <scroll-view scroll-x="true" class='category'>
-        <block wx:for='{{["全部","简单问答","快递外卖","替课","技术服务","二手交易"]}}' wx:key="item">
-            <view class='category_item' data-index='{{index}}' data-current='{{item}}' bindtap='tab'>
-                {{item}}
+        <block wx:for='{{cate}}' wx:key="item">
+            <view class='category_item' data-index='{{index}}' data-current='{{item.value}}' bindtap='tab'>
+                {{item.value}}
             </view>
         </block>
     </scroll-view>
-   </view>   
+   </view>
           <block>
           <view class='item' wx:for="{{re}}" wx:key="re">
             <image class='user_face' src='{{item.profile_pic}}'></image>

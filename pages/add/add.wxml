@@ -1,46 +1,38 @@
-
 <!--pages/add/add.wxml-->
 <view class='container'>
-    <form bindsubmit="formSubmit" >
+    <form bindsubmit="formSubmit">
         <!--文字内容  -->
         <view class='form_content'>
-            <textarea  class='textarea' value="{{mess}}" auto-focus='true' placeholder="输入内容..." name='content' id="con" ></textarea>
+            <textarea class='textarea' value="{{mess}}" auto-focus='true' placeholder="输入内容..." name='content' id="con"></textarea>
 
-<view class='mig'>
-<view  wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
-     <image class='pic'src="{{item}}" data-index="{{index}}" bindlongtap="deleteImg" mode="aspectFill" bindtap="previewImg"></image>
-    
-  </view>
-  <view><image class='pic' bindtap="chooseImg" src='/image/pic.png'></image></view>
-  </view>
-  
+            <view class='mig'>
+                <view wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
+                    <image class='pic' src="{{item}}" data-index="{{index}}" bindlongtap="deleteImg" mode="aspectFill" bindtap="previewImg"></image>
 
-         
+                </view>
+                <view>
+                    <image class='pic' bindtap="chooseImg" src='/image/pic.png'></image>
+                </view>
+            </view>
 
-
-
-               
             <button formType="submit" class='sub_btn'>发表</button>
-            
-        
 
         </view>
         <!--添加图片  -->
-        
+
 
 
         <text class='sel_cate'>选择分类</text>
-         <!-- <block wx:for='{{["简单问答","快递外卖","替课","技术服务","二手交易"]}}'>
+        <!-- <block wx:for='{{["简单问答","快递外卖","替课","技术服务","二手交易"]}}'>
             <view class='category_item' data-index='{{index}}'>
                 {{item}}
             </view>
         </block>  -->
 
-        <radio-group name='radio' class="radio-group" >
+        <radio-group name='radio' class="radio-group">
             <label wx:key='name' class="radio_lebal" wx:for="{{cate}}" wx:for-item="cate">
-                <radio  value="{{cate.value}}"hidden='true'  checked="{{cate.checked}}" />
-                <text bindtap='radio_tap' 
-                style=" color:{{cate.color}};border-color:{{cate.color}}" id='{{index}}' class='radio_text'>{{cate.value}}</text>
+                <radio value="{{cate.value}}" hidden='true' checked="{{cate.checked}}" />
+                <text bindtap='radio_tap' style=" color:{{cate.color}};border-color:{{cate.color}}" id='{{index}}' class='radio_text'>{{cate.value}}</text>
             </label>
         </radio-group>
 

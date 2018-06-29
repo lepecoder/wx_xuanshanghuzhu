@@ -114,7 +114,8 @@ Page({
     var sid = "post_data.service_id";
     this.setData({
       releaseFocus: false, //失去焦点            
-      [sid]: getApp().globalData.openid
+      [sid]: getApp().globalData.openid,
+      content:""
     })
     console.log(e);
     var that = this;
