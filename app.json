@@ -21,7 +21,7 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "济南大学悬赏互助平台",
     "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": true
+    // "enablePullDownRefresh": true
   },
   "networkTimeout": {
     "request": 3000
