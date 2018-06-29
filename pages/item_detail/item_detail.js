@@ -24,7 +24,20 @@ Page({
     commentCount: 0, //评论数
     imgs:[]   //图片
   },
-
+  //图片点击事件
+  imgYu: function (event) {
+      var src = event.currentTarget.dataset.src;//获取data-src
+      var imgList = event.currentTarget.dataset.list;//获取data-list
+      //图片预览
+      console.log("当前显示的图片url");
+      console.log(src);
+      console.log("需要预览的图片的url列表");
+      console.log(imgList.img_url);
+      wx.previewImage({
+          current: src, // 当前显示图片的http链接
+          urls: imgList // 需要预览的图片http链接列表
+      })
+  },
   //更改收藏状态
   changeCollectionStatus: function(event) {
 
@@ -180,13 +193,17 @@ Page({
         console.log(res.data[0]);
         // that.post_data.parent_service_id = res.data[0].service_id;
         var pid = "post_data.parent_service_id";
+        for(var $i=0;$i<res.data[0]["imgs"].length;$i++ ){
+            that.data.imgs[$i]=res.data[0]["imgs"][$i]["img_url"]
+        }
         that.setData({
           post_id: options["post_id"],
           post_info: res.data[0],
           [pid]: res.data[0].service_id,
           comments: res.data[0]["comments"],
           commentCount: res.data[0].comments.length,
-          imgs: res.data[0]["imgs"]
+        //   imgs: res.data[0]["imgs"]
+          imgs:that.data.imgs
           
         })
         console.log(that.data.imgs)
@@ -195,6 +212,7 @@ Page({
         console.log('detail request fail')
       }
     })
+    console.log(that.data.imgs);
     //获取收藏状态collectionStatus
     var that = this
     var url = 'https://api.admination.cn/restful/index.php/collection/' + getApp().globalData.openid + '/' + that.data.post_id;
