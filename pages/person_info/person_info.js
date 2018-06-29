@@ -169,7 +169,8 @@ setSignature: function (e) {
       success: function (res) {
         that.setData({ imgUrl: res.data });
       }
-    })   
+    }) 
+
     wx.getStorage({
       key: 'sex',
       success: function (res) {
@@ -188,14 +189,17 @@ setSignature: function (e) {
       key: 'phonenumber',
       success: function (res) {
         that.setData({ phonenumber: res.data });
+        getApp().globalData.phonenumber =res.data
       }
     
     })
+   
 
     wx.getStorage({
       key: 'signature',
       success: function (res) {
         that.setData({ signature: res.data });
+        getApp().globalData.signature=res.data
       }
     })    
     
