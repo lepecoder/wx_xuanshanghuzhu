@@ -1,1 +1,15 @@
 /* pages/authorize/authorize.wxss */
+.title{
+  /* width: 600rpx; */
+  /* margin: 0 auto; */
+font-size: 55rpx;
+margin-top: 200rpx;
+color: aqua;
+ text-align: center;
+}
+.userinfo_button{
+  margin-top: 100rpx;
+background-color: aqua;
+color: white;
+  width: 300rpx;
+}

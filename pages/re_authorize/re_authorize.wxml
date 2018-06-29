@@ -1,5 +1,5 @@
 <!--pages/re_authorize/re_authorize.wxml-->
-<view><text>温馨提示！</text></view>
-<view><text> 为保证您的正常使用，请进行授权！</text></view>
+<view class='title'><text>温馨提示！</text></view>
+<view class='text'><text> 为保证您的正常使用，请进行授权！</text></view>
 <button  class='userinfo_button' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">重新授权</button>
 

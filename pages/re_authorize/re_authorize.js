@@ -8,6 +8,7 @@ Page({
   
   },
   bindGetUserInfo: function (e) {
+    if (e.detail.errMsg == "getUserInfo:ok") {
     wx.getSetting({
       success: function (res) {
         if (res.authSetting['scope.userInfo']) {
@@ -75,6 +76,16 @@ Page({
         }
       }
     })
+    }
+    else
+      wx.showToast({
+        title: "请进行授权",
+        icon: 'succes',
+        duration: 2000,
+        mask: true,
+
+      })
+    
   },
   /**
    * 生命周期函数--监听页面加载

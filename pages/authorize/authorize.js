@@ -10,7 +10,7 @@ Page({
   bindGetUserInfo:function(e){
     
     console.log(e.detail)
-    if (e.detail.errMsg.getUserInfo=="ok"){
+    if (e.detail.errMsg =="getUserInfo:ok"){
     wx.getSetting({
       success: function (res) {
         if (res.authSetting['scope.userInfo']) {
@@ -56,7 +56,9 @@ Page({
                   // 登录成功
                   if (res.statusCode === 200) {
 
-
+                    wx.redirectTo({
+                      url: '/pages/index/index'
+                    })
 
                     console.log(res.data)
 
@@ -90,7 +92,7 @@ Page({
      })
     }
     else 
-      
+     // console.log(e.detail.errMsg)
       wx: wx.navigateTo({
         url: '/pages/re_authorize/re_authorize',
         success: function (res) { },

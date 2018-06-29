@@ -1,1 +1,19 @@
 /* pages/re_authorize/re_authorize.wxss */
+.title{
+  /* width: 600rpx; */
+  /* margin: 0 auto; */
+font-size: 55rpx;
+margin-top: 100rpx;
+
+ text-align: center;
+}
+.text{
+  margin-top: 50rpx;
+   text-align: center;
+}
+.userinfo_button{
+  margin-top: 100rpx;
+background-color: aqua;
+color: white;
+  width: 300rpx;
+}
