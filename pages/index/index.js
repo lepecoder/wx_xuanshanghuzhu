@@ -122,7 +122,8 @@ Page({
             success: function (res) {
               console.log("shouquan")
               wx.request({
-                url: 'https://api.admination.cn/restful/show_post_list.php',    //-wait
+                //url: 'https://api.admination.cn/restful/show_post_list.php',    //-wait
+                url:that.data.tabUrl,
                 data: {
                 },
                 header: {
