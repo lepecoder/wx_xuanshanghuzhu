@@ -12,10 +12,21 @@ Page({
 
   setPhonenumber: function (e) {
       var pn = e.detail.value;
+      var count=pn.length
+      if(count==11&&parseInt(pn).toString.length){
       getApp().globalData.phonenumber = pn
       wx.navigateBack({
         delta: 1
-      })
+      })}
+      else{
+        wx.showToast({
+          title: '请输入11位号码',
+          icon: 'succes',
+          duration: 2000,
+          mask: true,
+
+        })
+      }
   },
 
   /**

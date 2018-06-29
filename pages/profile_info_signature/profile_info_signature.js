@@ -12,10 +12,21 @@ Page({
 
   setSignature: function (e) {
       var sign = e.detail.value;
+      if(sign.length<100){
       getApp().globalData.signature = sign
       
       wx.navigateBack({
           //-------
+      })
+      }
+      else
+      wx.showToast({
+        title: '长度过大',
+        icon: 'succes',
+        duration: 2000,
+        mask: true,
+
+     
       })
      
   },
