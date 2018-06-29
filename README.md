@@ -1,5 +1,9 @@
 ### 微信小程序--悬赏互助平台
 
+### 开发背景
+通过微信小程序接单或发布任务。
+可惜小程序不允许临时会话而在小程序里私聊又不能在退出小程序后获得提醒，所以。。。。**项目没有实际使用价值**，可以使用html5或是直接开发原生应用。
+
 ### 参考资料
 [微信小程序简易教程](https://developers.weixin.qq.com/miniprogram/dev/)
 [微信API文档](https://developers.weixin.qq.com/miniprogram/dev/api/)
@@ -39,10 +43,23 @@
 - [x] 帖子发布显示图片  --zsz
 - [x] 缩小"我的"页面右箭头 --lxp
 -  ~~[ ] 首先联系他跳转到私聊 --lxp~~ 
+- [ ] 点击头像可以看到他的发帖，可以发私信
+- [ ] 快捷支付功能
+- [ ] 发布任务必须设置金额
+- [ ] 可能存在多个人接单，比如Ａ接单后Ｂ并没有刷新页面，仍可能接单
+- [ ] session安全验证
+- [ ] 评论显示时间
+- [ ] 可以长按自己的评论弹出删除的选项
+- [ ] 评论可以发图片
+- [ ] 增大发布任务允许的字数，并在输入的时候统计当前字数
+- [ ] 下拉刷新
+- [ ] 上拉加载
+- [ ] 优化页面路由
+- [ ] onShow时更新页面
+- [ ] 用户反馈功能
 
 
-
-## 页面说明
+## 部分页面说明
 
 ```plain
 "pages": [
@@ -60,5 +77,16 @@
 	"pages/profile_MyCollect/profile_MyCollect"						  //'我的' --> '我的收藏'
 ],
 ```
+
+### 项目预览
+![](http://p1f1jwe7c.bkt.clouddn.com/18-6-29/3783884.jpg)
+![](http://p1f1jwe7c.bkt.clouddn.com/18-6-29/19989831.jpg)
+![](http://p1f1jwe7c.bkt.clouddn.com/18-6-29/77650622.jpg)
+![](http://p1f1jwe7c.bkt.clouddn.com/18-6-29/18449371.jpg)
+![](http://p1f1jwe7c.bkt.clouddn.com/18-6-29/14755115.jpg)
+![](http://p1f1jwe7c.bkt.clouddn.com/18-6-29/78202889.jpg)
+![](http://p1f1jwe7c.bkt.clouddn.com/18-6-29/26101099.jpg)
+![](http://p1f1jwe7c.bkt.clouddn.com/18-6-29/70650192.jpg)
+![](http://p1f1jwe7c.bkt.clouddn.com/18-6-29/68555828.jpg)
 
 
