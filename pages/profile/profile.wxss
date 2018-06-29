@@ -7,7 +7,7 @@
     padding: 20rpx;
     background-image: url(http://chuantu.biz/t6/327/1528791807x-1376440168.png);
     background-repeat: no-repeat;
-    background-size: 50rpx;
+    background-size: 30rpx;
     background-position: 650rpx;
     margin-bottom: 20rpx;
     padding-bottom: 30rpx;
@@ -55,7 +55,7 @@
     display: inline-block;
     background-image: url(http://chuantu.biz/t6/327/1528791807x-1376440168.png);
     background-repeat: no-repeat;
-    background-size: 50rpx;
+    background-size: 30rpx;
     background-position: 560rpx;
 }
 

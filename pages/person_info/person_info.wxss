@@ -11,7 +11,7 @@ page{background-color: #EAEAEA;}
      line-height: 120rpx; 
     background-image: url(http://chuantu.biz/t6/327/1528791807x-1376440168.png);
     background-repeat: no-repeat;
-    background-size: 50rpx;
+    background-size: 30rpx;
     background-position: 680rpx;
      border-bottom: 1px solid #CCC;
 }
@@ -21,7 +21,7 @@ page{background-color: #EAEAEA;}
     line-height: 120rpx;
     background-image: url(http://chuantu.biz/t6/327/1528791807x-1376440168.png);
     background-repeat: no-repeat;
-    background-size: 50rpx;
+    background-size: 30rpx;
     background-position: 680rpx;
      border-bottom: 1px solid #CCC;
      
