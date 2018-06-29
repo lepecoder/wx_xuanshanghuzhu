@@ -38,6 +38,9 @@
   
    
 }
+.pic{
+  border: 1rpx dashed #ccc;
+}
 .mcf{
     margin-left: 40rpx;
 }

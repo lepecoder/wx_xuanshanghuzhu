@@ -11,7 +11,7 @@
 
                 </view>
                 <view>
-                    <image class='pic' bindtap="chooseImg" src='/image/pic.png'></image>
+                    <image class='pic' bindtap="chooseImg" src='/image/add.png'></image>
                 </view>
             </view>
 

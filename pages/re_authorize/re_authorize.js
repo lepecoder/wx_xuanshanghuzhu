@@ -80,7 +80,7 @@ Page({
     else
       wx.showToast({
         title: "请进行授权",
-        icon: 'succes',
+        icon: 'none',
         duration: 2000,
         mask: true,
 
