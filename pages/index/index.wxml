@@ -5,7 +5,7 @@
    <view>
     <scroll-view scroll-x="true" class='category'>
         <block wx:for='{{cate}}' wx:key="item">
-            <view class='category_item' data-index='{{index}}' data-current='{{item.value}}' bindtap='tab'>
+            <view class='category_item' style=" color:{{item.color}}" data-index='{{index}}' data-current='{{item.value}}' bindtap='tab'>
                 {{item.value}}
             </view>
         </block>

@@ -13,17 +13,96 @@ Page({
     //发布分类
     cate: [
         { name: 'all', value: '全部', checked: 'true', color: ' #43cd80' },        
-        { name: 'kuaidi', value: '快递外卖', checked: 'true', color: ' #43cd80' },
+        { name: 'kuaidi', value: '快递外卖', checked: 'true', color: ' #666' },
         { name: 'jiandan', value: '简单问答', color: '#666' },
         { name: 'tike', value: '替课', color: '#666' },
         { name: 'jishu', value: '技术服务', color: '#666' },
         { name: 'ershou', value: '二手交易', color: '#666' },
     ],
+    tabUrl: 'https://api.admination.cn/restful/show_post_list.php',
+
+    onPullDownRefresh: function () {
+
+        // 用户触发了下拉刷新操作
+        console.log('--------下拉刷新-------')
+        // 在标题栏中显示加载
+        // wx.showNavigationBarLoading()
+
+        // 拉取数据重新渲染界面
+        // var that = this
+        // wx.request({
+
+        //   url: 'https://api.admination.cn/restful/show_post_list.php',  
+        //   data: {
+        //   },
+        //   header: {
+        //     'content-type':
+        //     'application/json'
+        //   },
+        //   success: function (res) {
+        //     that.setData({
+        //       re: res.data.content
+        //     })
+        //   },
+        //   fail: function (res) {
+        //     console.log("home request fail");
+        //   },
+        //   complete:function(){
+        //     console.log('--------下拉刷新-------')
+        //     wx.hideNavigationBarLoading() //完成停止加载
+        //     wx.stopPullDownRefresh()  // 停止当前页面的下拉刷新
+        //   }
+        // })
+
+    },
+  },
+  onPullDownRefresh: function () {
+
+      // 用户触发了下拉刷新操作
+      console.log('--------下拉刷新-------')
+      // 在标题栏中显示加载
+      // wx.showNavigationBarLoading()
+
+      // 拉取数据重新渲染界面
+      // var that = this
+      // wx.request({
+
+      //   url: 'https://api.admination.cn/restful/show_post_list.php',  
+      //   data: {
+      //   },
+      //   header: {
+      //     'content-type':
+      //     'application/json'
+      //   },
+      //   success: function (res) {
+      //     that.setData({
+      //       re: res.data.content
+      //     })
+      //   },
+      //   fail: function (res) {
+      //     console.log("home request fail");
+      //   },
+      //   complete:function(){
+      //     console.log('--------下拉刷新-------')
+      //     wx.hideNavigationBarLoading() //完成停止加载
+      //     wx.stopPullDownRefresh()  // 停止当前页面的下拉刷新
+      //   }
+      // })
 
   },
-
   //tab切换
   tab: function (event) {
+      console.log(event);
+      var after_cate=[
+          { name: 'all', value: '全部', checked: 'true', color: ' #666' },
+          { name: 'kuaidi', value: '快递外卖', checked: 'true', color: ' #666' },
+          { name: 'jiandan', value: '简单问答', color: '#666' },
+          { name: 'tike', value: '替课', color: '#666' },
+          { name: 'jishu', value: '技术服务', color: '#666' },
+          { name: 'ershou', value: '二手交易', color: '#666' },
+      ];
+          after_cate[event.currentTarget.dataset.index].color ="#43cd80";
+    console.log(after_cate);
     console.log(event.target.dataset.current);
     this.setData({ current: event.target.dataset.current })
     if (event.target.dataset.current=="全部")
@@ -31,8 +110,13 @@ Page({
     else 
       var url = 'https://api.admination.cn/restful/show_post_list.php?class=' + event.target.dataset.current
 
-    console.log(url)
     var that = this
+    that.setData({
+      tabUrl: url,
+      cate:after_cate
+    })
+    console.log(url)
+    
     wx.request({
       url: url,    //-wait
       data: {
@@ -57,40 +141,6 @@ Page({
   },
 
 
-  onPullDownRefresh:function(){
-    
-    // 用户触发了下拉刷新操作
-    console.log('--------下拉刷新-------')
-    // 在标题栏中显示加载
-    //wx.showNavigationBarLoading() 
-
-    // 拉取数据重新渲染界面
-    // var that = this
-    // wx.request({
-      
-    //   url: 'https://api.admination.cn/restful/show_post_list.php',  
-    //   data: {
-    //   },
-    //   header: {
-    //     'content-type':
-    //     'application/json'
-    //   },
-    //   success: function (res) {
-    //     that.setData({
-    //       re: res.data.content
-    //     })
-    //   },
-    //   fail: function (res) {
-    //     console.log("home request fail");
-    //   },
-    //   complete:function(){
-    //     console.log('--------下拉刷新-------')
-    //     wx.hideNavigationBarLoading() //完成停止加载
-    //     wx.stopPullDownRefresh()  // 停止当前页面的下拉刷新
-    //   }
-    // })
-
-  },
   
   onReachBottom: function () {
 
@@ -115,30 +165,67 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (option) {
-    var that=this
-    wx.request({
-      url: 'https://api.admination.cn/restful/show_post_list.php',    //-wait
-      data: {  
-      },
-      header: {
-        'content-type':
-        'application/json'
-      },
+    var that = this
+    
+    wx.getSetting({
+   
       success: function (res) {
-        var res_content = res.data.content;
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+          wx.getUserInfo({
+            success: function (res) {
+              console.log("shouquan")
+              wx.request({
+                //url: 'https://api.admination.cn/restful/show_post_list.php',    //-wait
+                url:that.data.tabUrl,
+                data: {
+                },
+                header: {
+                  'content-type':
+                  'application/json'
+                },
+                success: function (res) {
+                  var res_content = res.data.content;
 
-        res_content.forEach((item) => {
-            item.publish_time = item.publish_time.substring(5,16)
-        });
-        that.setData({
-          re:res_content
-        })  
+                  res_content.forEach((item) => {
+                    item.publish_time = item.publish_time.substring(5, 16)
+                  });
+                  that.setData({
+                    re: res_content
+                  })
+                },
+                fail: function (res) {
+                  console.log("home request fail");
+                }
+              })
+
+             
+             
+            },
+            fail: function () {
+              wx.redirectTo({
+                url: '/pages/authorize/authorize'
+              })
+            }
+          })
+        }
+        else
+          wx.redirectTo({
+            url: '/pages/authorize/authorize'
+          })
+     
+
+
       },
-      fail: function (res) {
-        console.log("home request fail");
+      fail:function(){
+        console.log("err1")
+        wx.redirectTo({
+          url: '/pages/authorize/authorize'
+        })
       }
     })
-
+   
+   //---
   },
 
   /**

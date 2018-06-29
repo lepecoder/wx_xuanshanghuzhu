@@ -109,12 +109,23 @@ App({
                       key: "avatar",
                       data: "",
                       success:function(res){
-                        
-                      
+                        wx.showToast({
+                          title: "setcg",
+                          icon: 'succes',
+                          duration: 2000,
+                          mask: true,
+
+                        })
 
                       },
                       fail:function(){
-                        
+                        wx.showToast({
+                          title: 'set失败',
+                          icon: 'succes',
+                          duration: 2000,
+                          mask: true,
+
+                        })
                       }
                     })
                     wx.setStorage({
