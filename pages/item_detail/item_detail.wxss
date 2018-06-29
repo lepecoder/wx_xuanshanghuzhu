@@ -30,6 +30,7 @@
 
 .comment .res_content {
     color: #707070;
+    word-break: break-all;
 }
 
 /*评论内容  */
@@ -204,4 +205,9 @@
     border-radius: 4px;
     border: 1px solid #dbdbdb;
     margin-top: 9rpx;
+}
+
+.article{
+  /* white-space: pre-wrap; */
+  word-break: break-all;
 }
