@@ -71,17 +71,18 @@ Page({
       },
       success: function(res) {
         console.log("accept order success")
-        wx: wx.switchTab({
-          url: '/pages/index/index',
-          success: function(res) {},
-          fail: function(res) {},
-          complete: function(res) {},
-        })
-        wx.showToast({
-          title: '接单成功',
-          icon: 'succes',
-          duration: 1500,
-          mask: true,
+        wx: wx.redirectTo({
+          url: '/pages/item_detail/item_detail?post_id=' + e.target.dataset.postid,
+          success: function (res) {
+            wx.showToast({
+              title: '接单成功',
+              icon: 'succes',
+              duration: 1500,
+              mask: true,
+            })
+           },
+          fail: function (res) { },
+          complete: function (res) { },
         })
         console.log(res)
       },

@@ -5,7 +5,7 @@
     <text class='item_content_cate'>{{post_info.class}}</text>
     <text class='user_name'>{{post_info.nick}}</text>
     <text class='orderStatus' wx:if="{{post_info.accep_service_id!=null}}">已接单</text>
-    <text class='orderStatusAccept' wx:else data-serviceid="{{post_info.service_id}}" data-postid="{{post_info.post_id}}" bindtap='acceptOrder'>我要接单</text>
+    <text class='orderStatusAccept' wx:else  data-serviceid="{{post_info.service_id}}" data-postid="{{post_info.post_id}}" bindtap='acceptOrder'>我要接单</text>
   </view>
   <view auto-hight:true class='item_content_text'>
     {{post_info.article}}
