@@ -10,7 +10,7 @@
     <view auto-hight:true class='item_content_text'>
         {{post_info.article}}
         <!-- 循环图片 -->
-        <view wx:if="{{imgs}}" >
+        <view wx:if="{{imgs}}">
             <image bindtap="imgYu" data-list="{{imgs}}" data-src="{{dImg}}" wx:for="{{imgs}}" wx:for-item="dImg" src="{{dImg}}"></image>
         </view>
 
@@ -46,7 +46,7 @@
 
 <!--回复帖子时输入框的样式响应（在循环外）-->
 <view class="release">
-    <input show-confirm-bar="false" bindconfirm="getContent" bindblur="getContent" class="textarea" placeholder-class="input_null" fixed="true" maxlength="-1" show-confirm-bar="false" cursor-spacing="15" auto-height="true" focus="{{releaseFocus}}" placeholder="{{placeholder}}"
-        value="{{content}}"></input>
+    <input type='text' confirm-type="send" show-confirm-bar="true" bindconfirm="getContent" bindinput="getContent" class="textarea" placeholder-class="input_null" fixed="true" maxlength="-1" show-confirm-bar="false" cursor-spacing="15" auto-height="true" focus="{{releaseFocus}}"
+        placeholder="{{placeholder}}" value="{{content}}"></input>
     <view class="submit" bind:tap='add_after'>发送</view>
 </view>

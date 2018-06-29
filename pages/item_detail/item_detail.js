@@ -112,7 +112,7 @@ Page({
     var s = "post_data.content";
     this.setData({
       [s]: e.detail.value, //更新评论内容
-      releaseFocus: false, //失去焦点
+    //   releaseFocus: false, //失去焦点
     })
     console.log("获取到新发评论内容");
     console.log(this.data);
@@ -121,6 +121,10 @@ Page({
     console.log(e);
   },
 
+//点击完成按钮
+    bindconfirm:function(e){
+        add_after(e);
+    },
 
   //点击发送事件
   add_after: function(e) {
