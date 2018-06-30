@@ -175,6 +175,17 @@ Page({
           wx.getUserInfo({
             success: function (res) {
               console.log("shouquan")
+              
+                wx.setStorage({
+                  key: "username",
+                  data: res.userInfo.nickName
+                })
+                wx.setStorage({
+                  key: "avatar",
+                  data: res.userInfo.avatarUrl
+                })
+
+              
               wx.request({
                 //url: 'https://api.admination.cn/restful/show_post_list.php',    //-wait
                 url:that.data.tabUrl,
@@ -198,6 +209,7 @@ Page({
                   console.log("home request fail");
                 }
               })
+
 
              
              
